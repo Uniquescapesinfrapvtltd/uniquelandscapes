@@ -380,3 +380,4 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 - Kept the Buddha water wall (Drawing/Built). Added a second pair below it: the client's finished timber cottage and garden by day and lit at night, tagged **Day**/**Night** (both are photos of the built work, so not Drawing/Built). 3:2 frames, side by side on wide screens (558×372 each at 1280px) and stacked on phones.
 - 3D Designs: removed design 13 (Buddha garden at night) at the user's request; 31 designs remain.
 - Farmhouse & Resorts: added "Gazebo and mural wall at night" as design 08, right after the daytime shot of the same gazebo; 14 designs.
+- Farmhouse & Resorts: removed designs 06 (log entrance gate), 11 (path to the cottages), 13 (tiled roof framing) at the user's request; 11 designs.

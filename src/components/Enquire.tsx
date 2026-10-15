@@ -19,8 +19,21 @@ function Select({ name, options }: { name: string; options: readonly string[] })
 
 export default function Enquire() {
   const [sent, setSent] = useState(false)
-  // The original design has no backend — submit only flips to the thank-you state.
-  const submit = (e: FormEvent) => { e.preventDefault(); setSent(true) }
+  const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle')
+  // FormSubmit relays the form to the inbox below; the very first submission sends that inbox a one-time activation link.
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setStatus('sending')
+    const data = Object.fromEntries(new FormData(e.currentTarget))
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/hello@uniquescapes.in', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...data, _subject: 'New website enquiry', _replyto: data.email, _template: 'table', _captcha: 'false' }),
+      })
+      if (!r.ok) throw new Error(String(r.status))
+      setSent(true); setStatus('idle')
+    } catch { setStatus('error') }
+  }
 
   return (
     <section id="enquire" data-screen-label="Enquire" style={css('background:#0A0A0A;color:#F5F4F0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))')}>
@@ -39,6 +52,7 @@ export default function Enquire() {
         <p style={css('margin:0;font-size:17px;line-height:1.7;font-weight:300;max-width:40ch;color:rgba(245,244,240,.8)')}>Tell us about the site and what you imagine. A principal will respond within two working days.</p>
         {!sent ? (
           <form onSubmit={submit} style={css('display:flex;flex-direction:column;gap:28px')}>
+            <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" style={css('display:none')} />
             <Field label="Name"><input name="name" autoComplete="name" placeholder="Name" className="fc-line" style={css(FIELD)} /></Field>
             <Field label="Phone" req><input name="phone" autoComplete="tel" type="tel" required className="fc-line" style={css(FIELD)} /></Field>
             <Field label="Email" req><input name="email" autoComplete="email" type="email" required placeholder="Email" className="fc-line" style={css(FIELD)} /></Field>
@@ -49,7 +63,8 @@ export default function Enquire() {
             <Field label="Message"><textarea name="message" rows={3} placeholder="Message" className="fc-line" style={css(AREA)}></textarea></Field>
             <Field label="Preferred timeframe" req><Select name="timeframe" options={TIMEFRAMES} /></Field>
             <Field label="Additional comments or specific requests"><textarea name="requests" rows={3} className="fc-line" style={css(AREA)}></textarea></Field>
-            <button type="submit" className="hv-olive" style={css('align-self:flex-start;display:flex;align-items:center;gap:16px;height:56px;padding:0 12px 0 32px;border-radius:999px;background:#F5F4F0;color:#0A0A0A;border:0;font-size:12px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s')}>Send enquiry<span style={css('display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#0A0A0A;color:#F5F4F0;font-size:15px;letter-spacing:0')}>→</span></button>
+            <button type="submit" className="hv-olive" disabled={status === 'sending'} style={css('align-self:flex-start;opacity:' + (status === 'sending' ? .6 : 1) + ';display:flex;align-items:center;gap:16px;height:56px;padding:0 12px 0 32px;border-radius:999px;background:#F5F4F0;color:#0A0A0A;border:0;font-size:12px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s')}>{status === 'sending' ? 'Sending…' : 'Send enquiry'}<span style={css('display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#0A0A0A;color:#F5F4F0;font-size:15px;letter-spacing:0')}>→</span></button>
+            {status === 'error' && <p role="alert" style={css('margin:0;font-size:14px;color:#E8A598')}>Couldn't send — please try again or write to hello@uniquescapes.in.</p>}
           </form>
         ) : (
           <div style={css('display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(245,244,240,.25);padding-top:32px')}>

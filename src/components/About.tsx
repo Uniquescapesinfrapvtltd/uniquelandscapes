@@ -52,10 +52,7 @@ export default function About({ reduced }: { reduced: boolean }) {
             <h3 style={css(H3)}>The <em style={css('font-weight:400;color:#5B6B42')}>founders.</em></h3>
             <span style={css(CAPS + ';color:#3A3A36')}>Select a founder</span>
           </div>
-          <div style={css('display:flex;flex-direction:column;gap:14px')}>
-            <p style={css("margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,2.4vw,36px);line-height:1.1;text-wrap:balance")}>Passion for Nature. <em style={css('font-weight:400;color:#5B6B42')}>A Commitment to Excellence.</em></p>
-            <p style={css('margin:0;font-size:17px;line-height:1.7;font-weight:300;color:#3A3A36;max-width:58ch;text-wrap:pretty')}>Some people learn their profession through textbooks. Others discover their calling through passion, experience, and the determination to master their craft.</p>
-          </div>
+          <p style={css('margin:0;font-size:17px;line-height:1.7;font-weight:300;color:#3A3A36;max-width:58ch;text-wrap:pretty')}>As brothers and partners, they lead every project personally — from the first sketch to the final stone. Design, civil works, landscaping, pools and fabrication all happen under one roof, guided by trust, a sharp eye for detail and honest conversation with every client.</p>
           <div style={css('display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,88px);align-items:start')}>
             <div className="founder-portrait" style={css('position:relative;aspect-ratio:4/5;width:100%;overflow:hidden;background:#E8E8E2')}>
               {STEPS.map((s, i) => {
@@ -67,7 +64,7 @@ export default function About({ reduced }: { reduced: boolean }) {
                 )
               })}
               <div style={css('position:absolute;left:20px;bottom:20px;z-index:5;pointer-events:none;display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:999px;background:#0A0A0A;color:#F5F4F0;font-size:11px;letter-spacing:.3em;text-transform:uppercase')}>
-                {String(step + 1).padStart(2, '0') + ' / 0' + STEPS.length + ' — Landscape Developer'}
+                {String(step + 1).padStart(2, '0') + ' / 0' + STEPS.length + ' — ' + STEPS[step][4].split(' · ').pop()}
               </div>
             </div>
             <div onMouseEnter={() => { t.current.paused = true }} onMouseLeave={() => { t.current.paused = false }} style={css('display:flex;flex-direction:column;border-bottom:1px solid #0A0A0A')}>

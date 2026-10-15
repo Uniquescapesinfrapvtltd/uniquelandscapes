@@ -35,7 +35,7 @@ export const SERVICES: [string, string, string[], string[]][] = [
 
 // [title, body, items, placeholder, role, quote]
 export const STEPS: [string, string, string[], string, string, string][] = [
-  ['Charan Samala', 'Leads design and client relationships. Trained as a landscape architect, with years of work on resorts and private estates before founding Uniquescapes.', ['Landscape architecture', 'Resorts & estates', 'Client lead'], 'Charan Samala', 'Co-founder · Design Director', 'A landscape should feel inevitable — as if it was always meant to be there.'],
+  ['Charan Samala', 'Some people learn their profession through textbooks. Others discover their calling through passion, experience, and the determination to master their craft. For me, landscaping is more than planting trees or creating gardens. It is about shaping experiences, enhancing spaces, and creating environments that people can connect with.', ['Landscape architecture', 'Resorts & estates', 'Client lead'], 'Charan Samala', 'Co-founder · Landscape Developer', 'Passion for Nature. A Commitment to Excellence.'],
   ['Akhil Samala', 'Leads engineering and construction. A civil engineer who built the in-house crews that let us deliver pools, structures and services to the drawing.', ['Civil engineering', 'Pools & structures', 'Site delivery'], 'Akhil Samala', 'Co-founder · Projects Director', 'What we promise on paper, we build on site — line for line.'],
 ]
 

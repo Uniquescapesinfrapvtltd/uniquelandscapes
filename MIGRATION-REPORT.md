@@ -375,3 +375,6 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 
 ## 28. Service videos removed
 - At the user's request, the walkthrough video was removed from the 3D Designs gallery (now 32 designs, all images) and the gallery's video support was reverted, so galleries are image-only again. The hero scroll video is unaffected.
+
+## 29. Drawn-then-built: cottage day/night pair
+- Kept the Buddha water wall (Drawing/Built). Added a second pair below it: the client's finished timber cottage and garden by day and lit at night, tagged **Day**/**Night** (both are photos of the built work, so not Drawing/Built). 3:2 frames, side by side on wide screens (558×372 each at 1280px) and stacked on phones.

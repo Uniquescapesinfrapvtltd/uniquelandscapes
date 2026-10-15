@@ -109,6 +109,18 @@ export default function About({ reduced }: { reduced: boolean }) {
             ))}
           </div>
         </div>
+        {/* Second pair: the finished timber cottage by day and lit at night (landscape 3:2 photos, stacked on phones). */}
+        <div style={css('display:flex;flex-direction:column;gap:20px;margin-top:calc(-1 * clamp(24px,5vh,56px))')}>
+          <p style={css('margin:0;font-size:17px;line-height:1.7;font-weight:300;color:#3A3A36;max-width:52ch;text-wrap:pretty')}>And a timber cottage we built with its garden — the same lawn, path and pergola swing, by day and lit for the evening.</p>
+          <div style={css('display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(12px,1.6vw,20px)')}>
+            {([['cottage-day', '/assets/studio/timber-cottage-day.jpg', 'Timber cottage and garden — by day', 'Day'], ['cottage-night', '/assets/studio/timber-cottage-night.jpg', 'Timber cottage and garden — lit at night', 'Night']] as const).map(([id, src, alt, tag]) => (
+              <figure key={id} style={css('position:relative;margin:0;aspect-ratio:3/2;overflow:hidden;background:#E8E8E2')}>
+                <div className="hv-zoom" style={css('position:absolute;inset:0;transition:transform 1.2s cubic-bezier(.16,1,.3,1)')}><ImageSlot id={id} src={src} placeholder={alt} /></div>
+                <figcaption style={css('position:absolute;left:clamp(10px,1.4vw,20px);top:clamp(10px,1.4vw,20px);z-index:2;pointer-events:none;padding:8px 14px;border-radius:999px;background:' + (tag === 'Night' ? '#0A0A0A;color:#F5F4F0' : '#F5F4F0;color:#0A0A0A') + ';font-size:11px;letter-spacing:.3em;text-transform:uppercase')}>{tag}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

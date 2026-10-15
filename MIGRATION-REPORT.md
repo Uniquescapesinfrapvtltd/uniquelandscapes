@@ -378,3 +378,4 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 
 ## 29. Drawn-then-built: cottage day/night pair
 - Kept the Buddha water wall (Drawing/Built). Added a second pair below it: the client's finished timber cottage and garden by day and lit at night, tagged **Day**/**Night** (both are photos of the built work, so not Drawing/Built). 3:2 frames, side by side on wide screens (558×372 each at 1280px) and stacked on phones.
+- 3D Designs: removed design 13 (Buddha garden at night) at the user's request; 31 designs remain.

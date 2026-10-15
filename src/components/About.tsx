@@ -4,6 +4,8 @@ import { gsap, ScrollTrigger } from '@/lib/gsap'
 import { STEPS } from '@/data/content'
 import ImageSlot from '@/components/ImageSlot'
 
+const FOUNDER_PHOTOS = ['/assets/founders/charan-samala.jpg', '/assets/founders/akhil-samala.jpg']
+
 const STEP_MS = 6000
 const H3 = "margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,4.2vw,64px);line-height:.95"
 const CAPS = 'font-size:11px;letter-spacing:.34em;text-transform:uppercase'
@@ -57,7 +59,7 @@ export default function About({ reduced }: { reduced: boolean }) {
                 const on = i === step
                 return (
                   <div key={i} style={{ ...css('position:absolute;inset:0;transition:opacity .9s cubic-bezier(.22,1,.36,1),transform 1.4s cubic-bezier(.16,1,.3,1)'), opacity: on ? 1 : 0, transform: `scale(${on ? 1 : 1.06})`, zIndex: on ? 2 : 1, pointerEvents: on ? 'auto' : 'none' }}>
-                    <ImageSlot id={'founder-' + (i + 1)} placeholder={s[3]} />
+                    <ImageSlot id={'founder-' + (i + 1)} placeholder={s[3]} src={FOUNDER_PHOTOS[i]} />
                   </div>
                 )
               })}

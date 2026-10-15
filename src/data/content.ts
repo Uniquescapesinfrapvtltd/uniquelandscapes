@@ -35,8 +35,8 @@ export const SERVICES: [string, string, string[], string[]][] = [
 
 // [title, body, items, placeholder, role, quote]
 export const STEPS: [string, string, string[], string, string, string][] = [
-  ['Founder Name', 'Leads design and client relationships. Trained as a landscape architect, with years of work on resorts and private estates before founding Uniquescapes.', ['Landscape architecture', 'Resorts & estates', 'Client lead'], 'Portrait — founder 1', 'Co-founder · Design Director', 'A landscape should feel inevitable — as if it was always meant to be there.'],
-  ['Founder Name', 'Leads engineering and construction. A civil engineer who built the in-house crews that let us deliver pools, structures and services to the drawing.', ['Civil engineering', 'Pools & structures', 'Site delivery'], 'Portrait — founder 2', 'Co-founder · Projects Director', 'What we promise on paper, we build on site — line for line.'],
+  ['Charan Samala', 'Leads design and client relationships. Trained as a landscape architect, with years of work on resorts and private estates before founding Uniquescapes.', ['Landscape architecture', 'Resorts & estates', 'Client lead'], 'Charan Samala', 'Co-founder · Design Director', 'A landscape should feel inevitable — as if it was always meant to be there.'],
+  ['Akhil Samala', 'Leads engineering and construction. A civil engineer who built the in-house crews that let us deliver pools, structures and services to the drawing.', ['Civil engineering', 'Pools & structures', 'Site delivery'], 'Akhil Samala', 'Co-founder · Projects Director', 'What we promise on paper, we build on site — line for line.'],
 ]
 
 // [name, type, place, year, aspect, photo?] — empty place/year are hidden.

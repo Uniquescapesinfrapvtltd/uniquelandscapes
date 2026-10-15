@@ -42,7 +42,7 @@ export default function About({ reduced }: { reduced: boolean }) {
         <div style={css('display:flex;flex-direction:column;gap:clamp(32px,5vh,56px)')}>
           <div style={css('display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid #0A0A0A')}>
             <span style={css(CAPS)}>About us</span>
-            <span style={css(CAPS + ';color:#5B6B42')}>Uniquescapes Infra</span>
+            <span style={css(CAPS + ';color:#5B6B42')}>Uniquescapes Infra · Est. 2019</span>
           </div>
           <h2 style={css("margin:0;max-width:18ch;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,6.4vw,104px);line-height:.92;letter-spacing:-.01em;text-wrap:balance")}>Built by Brothers. Driven by Vision. <em style={css('font-weight:400;color:#5B6B42')}>Designed to Inspire.</em></h2>
           <p style={css('margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.65;font-weight:300;color:#3A3A36;max-width:52ch;text-wrap:pretty')}>Every extraordinary place begins with a vision. Ours began with two brothers who wanted to create spaces people don’t just visit, but truly feel — resorts, farmhouses and landscapes that tell a story and stay with you long after you leave.</p>
@@ -63,8 +63,8 @@ export default function About({ reduced }: { reduced: boolean }) {
                   </div>
                 )
               })}
-              <div style={css('position:absolute;left:20px;bottom:20px;z-index:5;pointer-events:none;display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:999px;background:#0A0A0A;color:#F5F4F0;font-size:11px;letter-spacing:.3em;text-transform:uppercase')}>
-                {String(step + 1).padStart(2, '0') + ' / 0' + STEPS.length + ' — ' + STEPS[step][4].split(' · ').pop()}
+              <div style={css('position:absolute;left:20px;bottom:20px;z-index:5;pointer-events:none;display:flex;align-items:center;gap:12px;max-width:calc(100% - 40px);line-height:1.5;padding:9px 16px;border-radius:20px;background:#0A0A0A;color:#F5F4F0;font-size:clamp(9px,2.5vw,11px);letter-spacing:clamp(.08em,.5vw,.3em);text-transform:uppercase')}>
+                {String(step + 1).padStart(2, '0') + ' / 0' + STEPS.length + ' — ' + (STEPS[step][6] ?? (STEPS[step][4].split(' · ').filter(r => r !== 'Co-founder').join(' · ') || STEPS[step][4]))}
               </div>
             </div>
             <div onMouseEnter={() => { t.current.paused = true }} onMouseLeave={() => { t.current.paused = false }} style={css('display:flex;flex-direction:column;border-bottom:1px solid #0A0A0A')}>

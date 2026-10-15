@@ -33,10 +33,10 @@ export const SERVICES: [string, string, string[], string[]][] = [
   ['3D Designs', 'Photoreal 3D renders and walkthroughs — see the finished space before a single stone is laid.', ['3D renders', 'Walkthrough videos', 'Landscape & pool visuals', 'Materials & lighting'], ['3D render — hero view', 'Render detail', 'Night render', 'Aerial render', 'Walkthrough still']],
 ]
 
-// [title, body, items, placeholder, role, quote]
-export const STEPS: [string, string, string[], string, string, string][] = [
-  ['Charan Samala', 'Some people learn their profession through textbooks. Others discover their calling through passion, experience, and the determination to master their craft. For me, landscaping is more than planting trees or creating gardens. It is about shaping experiences, enhancing spaces, and creating environments that people can connect with.', ['Landscape architecture', 'Resorts & estates', 'Client lead'], 'Charan Samala', 'Co-founder · Landscape Developer', 'Passion for Nature. A Commitment to Excellence.'],
-  ['Akhil Samala', 'Leads engineering and construction. A civil engineer who built the in-house crews that let us deliver pools, structures and services to the drawing.', ['Civil engineering', 'Pools & structures', 'Site delivery'], 'Akhil Samala', 'Co-founder · Projects Director', 'What we promise on paper, we build on site — line for line.'],
+// [title, body, items, placeholder, role, quote, photo label? (defaults to the role minus "Co-founder")]
+export const STEPS: [string, string, string[], string, string, string, string?][] = [
+  ['Charan Samala', 'I believe every exceptional space begins with a vision and comes to life through thoughtful planning, quality execution, and a clear understanding of the client’s aspirations. My passion lies in property development, and end-to-end project delivery. For me, success is not just about completing a project. It is about creating something extraordinary and earning the trust that brings clients back.', ['Property development', 'End-to-end delivery', 'Client relationships'], 'Charan Samala', 'Co-founder · Construction & Development Specialist · Client Relationship Leader', 'Building Visions. Creating Experiences. Earning Trust.'],
+  ['Akhil Samala', 'Some people learn their profession through textbooks. Others discover their calling through passion, experience, and the determination to master their craft. For me, landscaping is more than planting trees or creating gardens. It is about shaping experiences, enhancing spaces, and creating environments that people can connect with.', ['Landscape execution', 'Pools & structures', 'Site delivery'], 'Akhil Samala', 'Co-founder · Head of Landscape Operations', 'Passion for Nature. A Commitment to Excellence.', 'Head of Landscape Execution'],
 ]
 
 // [name, type, place, year, aspect, photo?] — empty place/year are hidden.

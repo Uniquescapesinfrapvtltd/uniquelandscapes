@@ -42,3 +42,4 @@ html.uq-cursor,html.uq-cursor *{cursor:none!important}
 #designs dialog::backdrop{background:transparent}
 @keyframes uqFadeIn{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.design-grid [data-reveal]{opacity:1;transform:none}}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}

@@ -356,3 +356,6 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 ## 24. Service renames
 - Service 3 is now **Farmhouse & Resorts** (title, description, features, stage page name; stage 2 "Farmhouses & Villas", finished stage "The Finished Retreat").
 - Service 4 "Residential & Commercial Construction" is now **3D Designs**, with new draft stages (Brief & Site Study, Concept & Layout, 3D Model & Materials, Renders & Walkthrough). Its URL is `?service=3d-designs` and its gallery folder is `src/assets/designs/3d-designs/`. The footer line and enquiry project types ("3D design" added) were updated to match.
+
+## 25. Landscaping showcase photo
+- The client's night photo of the garden pavilion (2000×1333, 432 KB, used as is) is now the Luxury Landscaping card photo on the home Services carousel, the "Finished Garden" stage photo, and design 01 in the landscaping gallery.

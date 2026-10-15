@@ -65,6 +65,7 @@ export interface ServicePageContent { name: string; stages: [tag: string, title:
 
 // Real photos for the home Services cards (keyed by slug); services without one keep the placeholder.
 export const SERVICE_CARD_PHOTOS: Record<string, string> = {
+  landscaping: '/assets/services/landscaping/garden-pavilion-night.jpg',
   pools: '/assets/services/pools/card-wide.jpg',
 }
 
@@ -78,7 +79,7 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
       ['Stage 1', 'Site & Survey', 'We study the ground first — levels, soil, drainage, sun and existing trees — before a single line is drawn.', 'Stage 1 — bare site / survey'],
       ['Stage 2', 'Groundwork', 'Grading, drainage, irrigation and hardscape go in: paths, steps, edging and the bones of the garden.', 'Stage 2 — groundwork & hardscape'],
       ['Stage 3', 'Planting', 'Trees, shrubs, lawns and groundcover are placed to the plan, chosen to mature well in the local climate.', 'Stage 3 — planting in progress'],
-      ['Finished', 'The Finished Garden', 'Lighting, finishing and handover. A landscape that is complete on day one and keeps getting better.', 'Finished — completed garden'],
+      ['Finished', 'The Finished Garden', 'Lighting, finishing and handover. A landscape that is complete on day one and keeps getting better.', 'Finished — completed garden', '/assets/services/landscaping/garden-pavilion-night.jpg'],
     ],
   },
   pools: {

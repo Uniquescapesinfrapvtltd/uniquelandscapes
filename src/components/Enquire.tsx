@@ -43,6 +43,7 @@ export default function Enquire() {
             <Field label="Phone" req><input name="phone" autoComplete="tel" type="tel" required className="fc-line" style={css(FIELD)} /></Field>
             <Field label="Email" req><input name="email" autoComplete="email" type="email" required placeholder="Email" className="fc-line" style={css(FIELD)} /></Field>
             <Field label="Location"><input name="location" autoComplete="address-level2" className="fc-line" style={css(FIELD)} /></Field>
+            <Field label="Land size (sq ft)"><input name="land" type="number" inputMode="numeric" min="0" placeholder="e.g. 5000" className="fc-line" style={css(FIELD)} /></Field>
             <Field label="Type of project" req><Select name="type" options={PROJECT_TYPES} /></Field>
             <Field label="Estimated budget" req><Select name="budget" options={BUDGETS} /></Field>
             <Field label="Message"><textarea name="message" rows={3} placeholder="Message" className="fc-line" style={css(AREA)}></textarea></Field>

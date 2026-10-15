@@ -1,0 +1,11 @@
+node_modules
+dist
+*.local
+
+# Large design-export sources (not needed to build the site; >100MB GitHub limit)
+original/
+*.zip
+
+# Local tooling
+.claude/
+.vercel

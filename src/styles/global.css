@@ -1,0 +1,32 @@
+/* Original <style> block from Uniquescapes Home.dc.html — unchanged */
+*{box-sizing:border-box}
+/* Shared horizontal gutter: logo, header, hero and services all align to this edge. */
+:root{--gutter:clamp(20px,3vw,40px)}
+/* Services carousel + stage pages: the design's wider 5vw inset (≈96px at 1920, 68px at 1366). */
+:root{--svc-gutter:clamp(20px,5vw,96px)}
+html,body{margin:0;padding:0;background:#0A0A0A;color:#F5F4F0;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:#7A8C5E}
+::selection{background:#7A8C5E;color:#F5F4F0}
+input,textarea,button{font-family:inherit}
+html.uq-cursor,html.uq-cursor *{cursor:none!important}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+@keyframes uqPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3);opacity:0}}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* The original's style-hover / style-focus attributes. The dc runtime compiled
+   each into a generated class with every declaration marked !important. */
+.hv-pill:hover{background:#F5F4F0!important;color:#0A0A0A!important}
+.hv-olive:hover{background:#7A8C5E!important;color:#F5F4F0!important}
+.hv-dark:hover{background:#0A0A0A!important;color:#F5F4F0!important}
+.hv-zoom:hover{transform:scale(1.03)!important}
+.hv-opaque:hover{opacity:1!important}
+.hv-olive-ink:hover{color:#7A8C5E!important}
+.hv-letter:hover{transform:translateY(-14%)!important;color:#7A8C5E!important}
+.fc-line:focus{border-bottom-color:#F5F4F0!important}
+
+/* Below ~560px the logo and both header pills can't fit on one row; Enquire stays in the Menu. */
+@media (max-width:559px){.hdr-enquire{display:none!important}}
+
+/* Phones under 420px: smaller mark + wordmark so the logo clears the Menu pill (360px Androids included). */
+@media (max-width:419px){.logo-link{gap:8px!important}.logo-mark{width:28px!important;height:28px!important}.logo-word{font-size:19px!important}}

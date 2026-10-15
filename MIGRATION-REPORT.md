@@ -381,3 +381,4 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 - 3D Designs: removed design 13 (Buddha garden at night) at the user's request; 31 designs remain.
 - Farmhouse & Resorts: added "Gazebo and mural wall at night" as design 08, right after the daytime shot of the same gazebo; 14 designs.
 - Farmhouse & Resorts: removed designs 06 (log entrance gate), 11 (path to the cottages), 13 (tiled roof framing) at the user's request; 11 designs.
+- Farmhouse & Resorts: added outdoor kitchen counter, pool and lawn at night, pool from the cottage veranda, and log-arch entrance gate (designs 08–11, before the build photos); 15 designs. The two iPhone HEIC files were converted to JPEG (heic-convert, outside the project) and resized from 4032px to 2000px (756 KB and 475 KB); the duplicated attachments were added once.

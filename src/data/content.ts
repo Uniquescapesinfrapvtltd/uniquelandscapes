@@ -76,10 +76,11 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
   landscaping: {
     name: 'Landscaping',
     stages: [
-      ['Stage 1', 'Site & Survey', 'We study the ground first — levels, soil, drainage, sun and existing trees — before a single line is drawn.', 'Stage 1 — bare site / survey'],
-      ['Stage 2', 'Groundwork', 'Grading, drainage, irrigation and hardscape go in: paths, steps, edging and the bones of the garden.', 'Stage 2 — groundwork & hardscape'],
-      ['Stage 3', 'Planting', 'Trees, shrubs, lawns and groundcover are placed to the plan, chosen to mature well in the local climate.', 'Stage 3 — planting in progress'],
-      ['Finished', 'The Finished Garden', 'Lighting, finishing and handover. A landscape that is complete on day one and keeps getting better.', 'Finished — completed garden', '/assets/services/landscaping/garden-pavilion-night.jpg'],
+      // Photos: the client's own landscape builds, in order.
+      ['Stage 1', 'Site & Survey', 'We study the ground first — levels, soil, drainage, sun and existing trees — before a single line is drawn.', 'Stage 1 — site dug out, footings', '/assets/services/landscaping/stage-1-site.jpg'],
+      ['Stage 2', 'Groundwork', 'Grading, drainage, irrigation and hardscape go in: paths, steps, edging and the bones of the garden.', 'Stage 2 — pergola base & kerbs', '/assets/services/landscaping/stage-2-groundwork.jpg'],
+      ['Stage 3', 'Planting', 'Trees, shrubs, lawns and groundcover are placed to the plan, chosen to mature well in the local climate.', 'Stage 3 — palms craned into place', '/assets/services/landscaping/stage-3-planting.jpg'],
+      ['Finished', 'The Finished Garden', 'Lighting, finishing and handover. A landscape that is complete on day one and keeps getting better.', 'Finished — villa garden from above', '/assets/services/landscaping/finished-aerial.jpg'],
     ],
   },
   pools: {

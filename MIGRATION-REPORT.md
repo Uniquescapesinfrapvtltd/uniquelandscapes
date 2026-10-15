@@ -359,3 +359,8 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 
 ## 25. Landscaping showcase photo
 - The client's night photo of the garden pavilion (2000×1333, 432 KB, used as is) is now the Luxury Landscaping card photo on the home Services carousel, the "Finished Garden" stage photo, and design 01 in the landscaping gallery.
+
+## 26. Luxury Landscaping photos
+- 15 new client photos (7 attached, plus 9 from the WhatsApp zip; one attachment duplicated the pavilion shot). One zip photo was stored sideways with no EXIF orientation, so it was rotated 90° counter-clockwise; the others are used as is (85–507 KB, at most 2000px).
+- **Stages:** 1 Site & Survey = dug-out site with footings; 2 Groundwork = pergola base and kerbs; 3 Planting = palms craned into place; Finished = aerial of the villa garden at night. The card photo stays the garden pavilion.
+- **Gallery:** 17 designs, finished work first (pavilion, aerials, lawns, cottage path, gazebo, pergola bar, lit walkway, deck, loungers, swing, kitchen garden, bamboo light sculpture), then the build (pergola, pavilion footings, roof-frame lift, palm planting).

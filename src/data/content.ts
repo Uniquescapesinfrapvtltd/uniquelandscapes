@@ -44,10 +44,7 @@ export const PROJECTS: [string, string, string, string, string, string?][] = [
   ['Timber Cottage & Pool', 'Farmhouse & Resorts', '', '', '1/1', '/assets/projects/timber-cottage-pool.jpg'],
   ['Round Pools & Mural Garden', 'Pools & Landscaping', '', '', '1/1', '/assets/projects/round-pools-mural-garden.jpg'],
   ['Dolphin Fountain & Slide Pool', 'Farmhouse & Resorts', '', '', '1/1', '/assets/projects/dolphin-fountain-pool-slide.jpg'],
-  ['The Aranya Resort', 'Resort', 'Alibaug', '2025', '4/5'],
-  ['Villa Neel', 'Pool & Landscape', 'Goa', '2024', '4/3'],
-  ['Kesar Farmhouse', 'Farmhouse', 'Lonavala', '2024', '4/3'],
-  ['Meridian Court', 'Commercial', 'Pune', '2023', '4/5'],
+  ['Timber Cabins & Garden Pool', 'Farmhouse & Resorts', '', '', '1/1', '/assets/projects/timber-cabins-garden-pool.jpg'],
 ]
 
 // [quote, who, project · place]

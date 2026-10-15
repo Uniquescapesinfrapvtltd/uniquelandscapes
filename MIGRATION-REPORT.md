@@ -372,3 +372,6 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 - **Swimming Pools (13):** added slide and rock waterfall, lagoon pool at night, loungers, mosaic pools, round pool walls and tiling; finished first, build last.
 - **Luxury Landscaping (26):** added lit cypress walkway, topiary path, palm avenue, garden name in stone, palm planting, boundary planting, turf laying; renumbered so finished work comes before build photos.
 - The gallery now supports video: the tile shows a still frame (`#t=0.1`) with a "Play" badge and nothing plays in the grid; the viewer plays it with controls.
+
+## 28. Service videos removed
+- At the user's request, the walkthrough video was removed from the 3D Designs gallery (now 32 designs, all images) and the gallery's video support was reverted, so galleries are image-only again. The hero scroll video is unaffected.

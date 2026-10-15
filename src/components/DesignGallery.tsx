@@ -54,14 +54,7 @@ export default function DesignGallery({ slug, name }: { slug: string; name: stri
           <button key={d.src} type="button" data-reveal onClick={() => setOpen(i)} aria-label={'Open design ' + (i + 1) + ': ' + d.title} data-cursor="View"
             style={css('display:block;width:100%;margin:0 0 clamp(12px,1.4vw,20px);padding:0;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer;break-inside:avoid')}>
             <span style={css('display:block;overflow:hidden;background:#E2E1DA')}>
-              {d.video ? (
-                <span style={css('position:relative;display:block')}>
-                  <video className="hv-zoom" src={d.src + '#t=0.1'} muted playsInline preload="metadata" aria-hidden="true" style={css('display:block;width:100%;height:auto;transition:transform 1.2s cubic-bezier(.16,1,.3,1)')} />
-                  <span style={css('position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;height:44px;padding:0 20px;border-radius:999px;background:rgba(10,10,10,.6);color:#F5F4F0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;pointer-events:none')}>▶ Play</span>
-                </span>
-              ) : (
-                <img className="hv-zoom" src={d.src} alt={d.title} loading="lazy" decoding="async" style={css('display:block;width:100%;height:auto;transition:transform 1.2s cubic-bezier(.16,1,.3,1)')} />
-              )}
+              <img className="hv-zoom" src={d.src} alt={d.title} loading="lazy" decoding="async" style={css('display:block;width:100%;height:auto;transition:transform 1.2s cubic-bezier(.16,1,.3,1)')} />
             </span>
             <span style={css('display:flex;gap:12px;padding-top:10px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#3A3A36')}>
               <span style={css('color:#5B6B42;font-variant-numeric:tabular-nums')}>{pad(i + 1)}</span>{d.title}
@@ -74,9 +67,7 @@ export default function DesignGallery({ slug, name }: { slug: string; name: stri
         style={css('width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(10,10,10,.96);color:#F5F4F0;overflow:hidden')}>
         {cur && (
           <div onPointerDown={down} onPointerUp={up} style={css('position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:64px var(--svc-gutter) 28px;touch-action:pan-y;user-select:none')}>
-            {cur.video
-              ? <video key={cur.src} src={cur.src} controls autoPlay playsInline style={css('max-width:100%;max-height:calc(100dvh - 140px);animation:uqFadeIn .35s ease')} />
-              : <img key={cur.src} src={cur.src} alt={cur.title} draggable={false} style={css('max-width:100%;max-height:calc(100dvh - 140px);object-fit:contain;animation:uqFadeIn .35s ease')} />}
+            <img key={cur.src} src={cur.src} alt={cur.title} draggable={false} style={css('max-width:100%;max-height:calc(100dvh - 140px);object-fit:contain;animation:uqFadeIn .35s ease')} />
             <span style={css(CAPS + ';text-align:center;font-variant-numeric:tabular-nums')}>{pad(open! + 1)} / {pad(N)} — {cur.title}</span>
             {N > 1 && <button type="button" aria-label="Previous design" onClick={() => go(-1)} style={css(NAV + ';left:clamp(8px,2vw,32px)')}>←</button>}
             {N > 1 && <button type="button" aria-label="Next design" onClick={() => go(1)} style={css(NAV + ';right:clamp(8px,2vw,32px)')}>→</button>}

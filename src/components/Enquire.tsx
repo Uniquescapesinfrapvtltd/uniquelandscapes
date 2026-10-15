@@ -26,7 +26,7 @@ export default function Enquire() {
     setStatus('sending')
     const data = Object.fromEntries(new FormData(e.currentTarget))
     try {
-      const r = await fetch('https://formsubmit.co/ajax/hello@uniquescapes.in', {
+      const r = await fetch('https://formsubmit.co/ajax/info@uniquescapesinfra.com', {
         method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ ...data, _subject: 'New website enquiry', _replyto: data.email, _template: 'table', _captcha: 'false' }),
       })
@@ -43,7 +43,7 @@ export default function Enquire() {
         <div style={css('position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:clamp(28px,5vh,56px);display:flex;flex-direction:column;gap:28px;pointer-events:none')}>
           <h2 style={css("margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(60px,7.6vw,128px);line-height:.88")}>Begin a <em style={css('font-weight:400')}>project.</em></h2>
           <div style={css('display:flex;flex-wrap:wrap;gap:12px 40px;pointer-events:auto')}>
-            <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Write</span><a href="mailto:hello@uniquescapes.in" style={css("font-family:'Cormorant Garamond',serif;font-size:26px")}>hello@uniquescapes.in</a></div>
+            <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Write</span><a href="mailto:info@uniquescapesinfra.com" style={css("font-family:'Cormorant Garamond',serif;font-size:26px")}>info@uniquescapesinfra.com</a></div>
             <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Where we work</span><span style={css("font-family:'Cormorant Garamond',serif;font-size:26px;text-wrap:balance")}>Telangana · Andhra Pradesh · Tamil Nadu · Karnataka · Maharashtra</span></div>
           </div>
         </div>
@@ -64,7 +64,7 @@ export default function Enquire() {
             <Field label="Preferred timeframe" req><Select name="timeframe" options={TIMEFRAMES} /></Field>
             <Field label="Additional comments or specific requests"><textarea name="requests" rows={3} className="fc-line" style={css(AREA)}></textarea></Field>
             <button type="submit" className="hv-olive" disabled={status === 'sending'} style={css('align-self:flex-start;opacity:' + (status === 'sending' ? .6 : 1) + ';display:flex;align-items:center;gap:16px;height:56px;padding:0 12px 0 32px;border-radius:999px;background:#F5F4F0;color:#0A0A0A;border:0;font-size:12px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s')}>{status === 'sending' ? 'Sending…' : 'Send enquiry'}<span style={css('display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#0A0A0A;color:#F5F4F0;font-size:15px;letter-spacing:0')}>→</span></button>
-            {status === 'error' && <p role="alert" style={css('margin:0;font-size:14px;color:#E8A598')}>Couldn't send — please try again or write to hello@uniquescapes.in.</p>}
+            {status === 'error' && <p role="alert" style={css('margin:0;font-size:14px;color:#E8A598')}>Couldn't send — please try again or write to info@uniquescapesinfra.com.</p>}
           </form>
         ) : (
           <div style={css('display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(245,244,240,.25);padding-top:32px')}>

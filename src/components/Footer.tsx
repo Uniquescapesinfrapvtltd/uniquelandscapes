@@ -56,7 +56,7 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
   const hr = +parts.hour % 24, isOpen = parts.weekday !== 'Sun' && hr >= 9 && hr < 19
 
   const copyEmail = () => {
-    navigator.clipboard?.writeText('hello@uniquescapes.in').catch(() => {})
+    navigator.clipboard?.writeText('info@uniquescapesinfra.com').catch(() => {})
     clearTimeout(copyTo.current); setCopied(true)
     copyTo.current = window.setTimeout(() => setCopied(false), 1800)
   }
@@ -84,7 +84,7 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
             </div>
             <span style={css('font-weight:300;font-size:clamp(44px,4.4vw,64px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.01em')}>{parts.hour + ':' + parts.minute + ':' + parts.second}</span>
             <button type="button" className="hv-olive-ink" onClick={copyEmail} style={css('display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding:16px 0 0;background:transparent;border:0;border-top:1px solid rgba(245,244,240,.18);color:#F5F4F0;cursor:pointer;text-align:left')}>
-              <span style={css("font-family:'Cormorant Garamond',serif;font-size:24px")}>hello@uniquescapes.in</span>
+              <span style={css("font-family:'Cormorant Garamond',serif;font-size:24px")}>info@uniquescapesinfra.com</span>
               <span style={{ ...css('font-size:11px;letter-spacing:.3em;text-transform:uppercase'), color: copied ? '#7A8C5E' : 'rgba(245,244,240,.6)' }}>{copied ? 'Copied ✓' : 'Copy'}</span>
             </button>
           </div>

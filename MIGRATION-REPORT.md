@@ -346,3 +346,9 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 - **Cards move by transform only:** each card is laid out once at the active size; per frame it gets `translate3d + scale(sx,sy)`, with the photo counter-scaled to stay undistorted (overflow:hidden crops). No width/height/left/top writes or clip-path changes per frame, and layout is read only on refresh. Title blur is skipped on phones.
 - **Idle work removed:** the loader unmounts after its curtain (its infinite "breathe" kept frames running); the footer clock and "open" pulse run only while the footer is on screen; founder progress bars are written only while visible.
 - **Measured** (390×844, 4× CPU throttle, fresh reload, scripted 5s scroll through Services, same protocol): old 107/84/82 frames (median frame 33–50ms) vs new 171/105/90 (median 17–33ms), plus a traced run at 225 frames (median 16.7ms). Runs degrade within one session for both versions, so this is a lab comparison, not a device fps guarantee.
+
+## 23. Design gallery per service
+- Each service page now has, below the stage-by-stage carousel, a "Selected designs" gallery (`DesignGallery.tsx`): a masonry grid (3 columns on laptops, 2 on tablets, 1 on phones) with a fade-up reveal, and a full-screen viewer (native `<dialog>`) with Prev/Next buttons, arrow keys, swipe and Esc.
+- **Adding designs needs no code:** drop images into `src/assets/designs/<slug>/` (`landscaping`, `pools`, `resorts`, `construction`). `src/data/designs.ts` picks them up with `import.meta.glob`. The file name sets order and caption: `07-infinity-pool-villa-neel.jpg` becomes design 07, "Infinity pool villa neel". A service with no images shows no gallery.
+- Seeded with the 5 real pool photos already on the site. Images are lazy-loaded; keep each around 1600px wide and under ~400KB (30 per service).
+- Verified at 1280×860 (3 columns, viewer next/prev/arrow-key/Esc) and 375×812 (1 column at the 20px gutters, no horizontal scroll).

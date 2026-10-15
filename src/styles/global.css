@@ -30,3 +30,7 @@ html.uq-cursor,html.uq-cursor *{cursor:none!important}
 
 /* Phones under 420px: smaller mark + wordmark so the logo clears the Menu pill (360px Androids included). */
 @media (max-width:419px){.logo-link{gap:8px!important}.logo-mark{width:28px!important;height:28px!important}.logo-word{font-size:19px!important}}
+
+/* Founder portrait sticks beside the founder list only when the grid has two columns (~1040px+); stacked on phones it covered the text. */
+@media (min-width:1040px){.founder-portrait{position:sticky!important;top:104px}}
+@keyframes uqBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}

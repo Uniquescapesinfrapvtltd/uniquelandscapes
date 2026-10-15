@@ -119,7 +119,7 @@ export default function App({ scrollLength = 500, preloader = true }: Props) {
   return (
     <>
       <Preloader enabled={preloader} reduced={reduced} media={media} loaded={loaded} onDone={() => setLoaded(true)} />
-      <Logo loaded={loaded} isMobile={isMobile} light={light} />
+      <Logo loaded={loaded} light={light} />
       {finePointer && <Cursor loaded={loaded} />}
       <Header loaded={loaded} isMobile={isMobile} light={light} menuOpen={menuOpen} onToggleMenu={toggleMenu} />
       {menuOpen && <MobileMenu onClose={closeMenu} />}

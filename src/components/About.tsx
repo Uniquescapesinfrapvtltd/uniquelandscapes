@@ -52,7 +52,7 @@ export default function About({ reduced }: { reduced: boolean }) {
           </div>
           <p style={css('margin:0;font-size:17px;line-height:1.7;font-weight:300;color:#3A3A36;max-width:58ch;text-wrap:pretty')}>As brothers and partners, they lead every project personally — from the first sketch to the final stone. Design, civil works, landscaping, pools and fabrication all happen under one roof, guided by trust, a sharp eye for detail and honest conversation with every client.</p>
           <div style={css('display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,88px);align-items:start')}>
-            <div style={css('position:sticky;top:104px;aspect-ratio:4/5;width:100%;overflow:hidden;background:#E8E8E2')}>
+            <div className="founder-portrait" style={css('position:relative;aspect-ratio:4/5;width:100%;overflow:hidden;background:#E8E8E2')}>
               {STEPS.map((s, i) => {
                 const on = i === step
                 return (

@@ -56,7 +56,7 @@ export const TESTIMONIALS: [string, string, string][] = [
 
 export const PROJECT_TYPES =['Landscaping', 'Swimming pool', 'Resort', 'Farmhouse', 'Residential', 'Commercial', '3D design']
 
-export const STATEMENT = ['We', 'design', 'and', 'build', 'landscapes,', 'pools', 'and', 'architecture', 'for', 'people', 'who', 'expect', 'the', 'outdoors', 'to', 'feel', 'as', 'considered', 'as', 'the']
+export const STATEMENT = ['We', 'transform', 'visionary', 'ideas', 'into', 'extraordinary', 'destinations', 'through', 'end-to-end', 'resort', 'and', 'farmhouse', 'development,', 'bespoke', 'landscapes,', 'architectural', 'swimming', 'pools,', 'and', 'precision-crafted', 'outdoor']
 
 // Slug per service (same order as SERVICES); used in ?service=<slug>.
 export const SERVICE_SLUGS = ['landscaping', 'pools', 'resorts', '3d-designs']

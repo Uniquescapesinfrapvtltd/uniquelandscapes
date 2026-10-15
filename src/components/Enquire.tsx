@@ -23,7 +23,7 @@ export default function Enquire() {
           <h2 style={css("margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(60px,7.6vw,128px);line-height:.88")}>Begin a <em style={css('font-weight:400')}>project.</em></h2>
           <div style={css('display:flex;flex-wrap:wrap;gap:12px 40px;pointer-events:auto')}>
             <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Write</span><a href="mailto:hello@uniquescapes.in" style={css("font-family:'Cormorant Garamond',serif;font-size:26px")}>hello@uniquescapes.in</a></div>
-            <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Studios</span><span style={css("font-family:'Cormorant Garamond',serif;font-size:26px")}>Mumbai · Pune · Goa</span></div>
+            <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Where we work</span><span style={css("font-family:'Cormorant Garamond',serif;font-size:26px;text-wrap:balance")}>Telangana · Andhra Pradesh · Tamil Nadu · Karnataka · Maharashtra</span></div>
           </div>
         </div>
       </div>

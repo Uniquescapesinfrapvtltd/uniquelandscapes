@@ -91,7 +91,7 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
         </div>
         <div style={css('display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:36px 24px;padding-top:40px;border-top:1px solid rgba(245,244,240,.18)')}>
           <div style={css('display:flex;flex-direction:column;gap:14px')}><span style={css(CAPS6)}>Navigate</span><div style={css(LIST)}><a href="#services">Services</a><a href="#projects">Projects</a><a href="#studio">About</a><a href="#enquire">Enquire</a></div></div>
-          <div style={css('display:flex;flex-direction:column;gap:14px')}><span style={css(CAPS6)}>Studios</span><div style={css(LIST)}><span>Mumbai</span><span>Pune</span><span>Goa</span></div></div>
+          <div style={css('display:flex;flex-direction:column;gap:14px')}><span style={css(CAPS6)}>Where we work</span><div style={css(LIST)}><span>Telangana</span><span>Andhra Pradesh</span><span>Tamil Nadu</span><span>Karnataka</span><span>Maharashtra</span></div></div>
           <div style={css('display:flex;flex-direction:column;gap:14px')}><span style={css(CAPS6)}>Follow</span><div style={css(LIST)}><a href="#">Instagram</a><a href="#">LinkedIn</a></div></div>
           <div style={css('display:flex;align-items:flex-start')}>
             <a href="#top" aria-label="Back to top" className="hv-pill" style={css('position:relative;display:flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:50%;font-size:10px;letter-spacing:.3em;text-transform:uppercase;text-align:center;line-height:1.4;transition:background .3s,color .3s')}>

@@ -67,6 +67,8 @@ export interface ServicePageContent { name: string; stages: [tag: string, title:
 export const SERVICE_CARD_PHOTOS: Record<string, string> = {
   landscaping: '/assets/services/landscaping/garden-pavilion-night.jpg',
   pools: '/assets/services/pools/card-wide.jpg',
+  resorts: '/assets/services/resorts/card.jpg',
+  '3d-designs': '/assets/services/3d-designs/card.jpg',
 }
 
 // Stage-by-stage pages opened from the Services carousel.
@@ -96,19 +98,19 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
   resorts: {
     name: 'Farmhouse & Resorts',
     stages: [
-      ['Stage 1', 'Masterplan', 'We plan the whole site first — the approach, the views, the villas and the outdoor spaces between them.', 'Stage 1 — site masterplan'],
-      ['Stage 2', 'Farmhouses & Villas', 'Foundations, frames and roofs for every farmhouse, villa and cottage, built by our own crews to the drawings.', 'Stage 2 — villas under construction'],
-      ['Stage 3', 'Outdoor Living', 'Lounges, decks, driveways and landscape draw the buildings together into one place.', 'Stage 3 — outdoor lounge & approach'],
-      ['Finished', 'The Finished Retreat', 'Interiors open to the garden, every detail resolved, handed over ready for the first guests or the first weekend.', 'Finished — farmhouse or resort at dusk'],
+      ['Stage 1', 'Masterplan', 'We plan the whole site first — the approach, the views, the villas and the outdoor spaces between them.', 'Stage 1 — masterplan render', '/assets/services/resorts/stage-1-masterplan.jpg'],
+      ['Stage 2', 'Farmhouses & Villas', 'Foundations, frames and roofs for every farmhouse, villa and cottage, built by our own crews to the drawings.', 'Stage 2 — timber cottage under construction', '/assets/services/resorts/stage-2-cottage-build.jpg'],
+      ['Stage 3', 'Outdoor Living', 'Lounges, decks, driveways and landscape draw the buildings together into one place.', 'Stage 3 — lawn, deck and pergolas', '/assets/services/resorts/stage-3-outdoor-living.jpg'],
+      ['Finished', 'The Finished Retreat', 'Interiors open to the garden, every detail resolved, handed over ready for the first guests or the first weekend.', 'Finished — timber cottage at night', '/assets/services/resorts/finished-cottage-night.jpg'],
     ],
   },
   '3d-designs': {
     name: '3D Designs',
     stages: [
-      ['Stage 1', 'Brief & Site Study', 'We start with how you want to live and the land you have — photos, levels and views of the real site.', 'Stage 1 — site photos & brief'],
-      ['Stage 2', 'Concept & Layout', 'Plans and sketches settle the layout: where the pool, lawn, paths and buildings sit and how they connect.', 'Stage 2 — concept layout'],
-      ['Stage 3', '3D Model & Materials', 'The design is modelled in 3D with real materials, planting and lighting, so every choice can be seen and changed.', 'Stage 3 — 3D model'],
-      ['Finished', 'Renders & Walkthrough', 'Photoreal day and night renders and a walkthrough video — the finished space, before construction begins.', 'Finished — final 3D render'],
+      ['Stage 1', 'Brief & Site Study', 'We start with how you want to live and the land you have — photos, levels and views of the real site.', 'Stage 1 — the real site', '/assets/services/3d-designs/stage-1-site.jpg'],
+      ['Stage 2', 'Concept & Layout', 'Plans and sketches settle the layout: where the pool, lawn, paths and buildings sit and how they connect.', 'Stage 2 — plan view of the layout', '/assets/services/3d-designs/stage-2-plan.jpg'],
+      ['Stage 3', '3D Model & Materials', 'The design is modelled in 3D with real materials, planting and lighting, so every choice can be seen and changed.', 'Stage 3 — 3D model from above', '/assets/services/3d-designs/stage-3-model.jpg'],
+      ['Finished', 'Renders & Walkthrough', 'Photoreal day and night renders and a walkthrough video — the finished space, before construction begins.', 'Finished — rooftop lounge render at sunset', '/assets/services/3d-designs/finished-render.jpg'],
     ],
   },
 }

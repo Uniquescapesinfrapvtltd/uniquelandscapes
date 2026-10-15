@@ -364,3 +364,11 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 - 15 new client photos (7 attached, plus 9 from the WhatsApp zip; one attachment duplicated the pavilion shot). One zip photo was stored sideways with no EXIF orientation, so it was rotated 90° counter-clockwise; the others are used as is (85–507 KB, at most 2000px).
 - **Stages:** 1 Site & Survey = dug-out site with footings; 2 Groundwork = pergola base and kerbs; 3 Planting = palms craned into place; Finished = aerial of the villa garden at night. The card photo stays the garden pavilion.
 - **Gallery:** 17 designs, finished work first (pavilion, aerials, lawns, cottage path, gazebo, pergola bar, lit walkway, deck, loungers, swing, kitchen garden, bamboo light sculpture), then the build (pergola, pavilion footings, roof-frame lift, palm planting).
+
+## 27. Designs from three WhatsApp zips (all services)
+- 79 photos and 2 videos in. Removed: 5 already on the site and 3 byte-identical (by MD5), 6 resized copies (32×32 grayscale mean-abs-diff ≤ 0.4), 1 personal selfie, and a 0.4s blank clip. 63 photos and 1 video placed.
+- **3D Designs (33):** the 11s top-down walkthrough video first, then rooftop pergola lounge renders, park/plaza/fountain renders, plan and aerial views, the villa masterplan, pagoda gazebo. Stages: real site, plan view, 3D model from above, sunset render. Card: fire-pit lounge render.
+- **Farmhouse & Resorts (13):** timber cottages at night, cottage bar, lit jaali ceiling, log gate, gazebo, lawns and pergolas, then build (cottage frame, tiled roof framing, pergola deck). Stages: masterplan render, cottage build, lawn/deck/pergolas, cottage at night. Card: cottage garden at night.
+- **Swimming Pools (13):** added slide and rock waterfall, lagoon pool at night, loungers, mosaic pools, round pool walls and tiling; finished first, build last.
+- **Luxury Landscaping (26):** added lit cypress walkway, topiary path, palm avenue, garden name in stone, palm planting, boundary planting, turf laying; renumbered so finished work comes before build photos.
+- The gallery now supports video: the tile shows a still frame (`#t=0.1`) with a "Play" badge and nothing plays in the grid; the viewer plays it with controls.

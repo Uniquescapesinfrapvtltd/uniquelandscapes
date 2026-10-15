@@ -14,11 +14,23 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
   const lettersRef = useRef<HTMLDivElement>(null)
   const ctaRef = useRef<HTMLAnchorElement>(null)
   const copyTo = useRef(0)
-
+  const footRef = useRef<HTMLElement>(null)
+  // The live clock re-renders every second and the 'open' dot pulses forever: run both only while the footer is on screen.
+  const [onScreen, setOnScreen] = useState(false)
   useEffect(() => {
-    const id = setInterval(() => setNow(Date.now()), 1000)
-    return () => { clearInterval(id); clearTimeout(copyTo.current) }
+    const el = footRef.current; if (!el || !('IntersectionObserver' in window)) { setOnScreen(true); return }
+    const io = new IntersectionObserver(([e]) => setOnScreen(e.isIntersecting))
+    io.observe(el)
+    return () => io.disconnect()
   }, [])
+
+  useEffect(() => () => clearTimeout(copyTo.current), [])
+  useEffect(() => {
+    if (!onScreen) return
+    setNow(Date.now())
+    const id = setInterval(() => setNow(Date.now()), 1000)
+    return () => clearInterval(id)
+  }, [onScreen])
 
   // "Back to top" ring = whole-page scroll progress.
   useEffect(() => {
@@ -50,7 +62,7 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
   }
 
   return (
-    <footer data-screen-label="Footer" style={css('background:#0A0A0A;color:#F5F4F0;padding:clamp(72px,12vh,128px) clamp(20px,5vw,72px) 28px;overflow:hidden;border-top:1px solid rgba(245,244,240,.15)')}>
+    <footer ref={footRef} data-screen-label="Footer" style={css('background:#0A0A0A;color:#F5F4F0;padding:clamp(72px,12vh,128px) clamp(20px,5vw,72px) 28px;overflow:hidden;border-top:1px solid rgba(245,244,240,.15)')}>
       <div style={css('max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(56px,9vh,96px)')}>
         <div style={css('display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:48px clamp(32px,5vw,80px);align-items:end')}>
           <div style={css('display:flex;flex-direction:column;gap:20px')}>
@@ -64,7 +76,7 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
             <div style={css('display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap')}>
               <span style={css('display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.3em;text-transform:uppercase')}>
                 <span style={{ position: 'relative', width: 8, height: 8, borderRadius: '50%', background: isOpen ? '#7A8C5E' : 'rgba(245,244,240,.4)', flex: 'none' }}>
-                  {isOpen && !reduced ? <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#7A8C5E', animation: 'uqPulse 2s ease-out infinite' }} /> : null}
+                  {isOpen && !reduced && onScreen ? <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#7A8C5E', animation: 'uqPulse 2s ease-out infinite' }} /> : null}
                 </span>
                 {isOpen ? 'Studio open — replies today' : 'Studio closed — opens 9:00'}
               </span>

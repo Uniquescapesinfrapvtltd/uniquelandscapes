@@ -17,7 +17,11 @@ interface Props {
 }
 
 // Keyframe tables from the original tickServices(); index = distance from the active card (−2..2).
-const K_MOB = { cx: [-.2, .2, .5, .8, 1.2], cy: [.62, .62, .38, .62, .62], w: [.2, .26, .88, .26, .2], h: [.05, .07, .34, .07, .05], s: [1.25, 1.18, 1, 1.18, 1.25], o: [0, 1, 1, 1, 0] }
+// Mobile cy/h are fractions of the free band between the label row and the title block (not of the
+// screen), so the cards can never reach the service name however many lines it wraps to; the
+// proportions match the original's on a 390×844 phone.
+const K_MOB = { cx: [-.2, .2, .5, .8, 1.2], cy: [.85, .85, .4, .85, .85], w: [.2, .26, .88, .26, .2], h: [.1, .13, .64, .13, .1], s: [1.25, 1.18, 1, 1.18, 1.25], o: [0, 1, 1, 1, 0] }
+const MOB_BAND_TOP = 140 // px: just under the label row at top:104px
 const K_DESK = { cx: [.36, .4, .54, .66, .7], cy: [-.3, .02, .52, .98, 1.3], w: [.12, .17, .44, .19, .14], h: [.12, .18, .58, .18, .12], s: [1.25, 1.18, 1, 1.18, 1.25], o: [0, 1, 1, 1, 0] }
 // The mobile keyframes are fractions of viewport height, with fixed labels at 104px. Below ~640px tall
 // (phones in landscape) the active card covers the labels and the side cards hit the titles,
@@ -30,7 +34,7 @@ const svcGutter = (W: number) => Math.min(96, Math.max(20, W * .05))
 const at = (arr: number[], d: number) => { d = Math.min(2, Math.max(-2, d)) + 2; const k = Math.min(3, Math.floor(d)), t = d - k; return arr[k] + (arr[k + 1] - arr[k]) * t }
 
 const BACK = 'flex:none;display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 16px;border-radius:999px;border:1px solid #0A0A0A;background:transparent;color:#0A0A0A;font-size:11px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;pointer-events:auto;transition:background .3s,color .3s'
-const CARD = 'position:absolute;left:30%;top:20%;width:40%;height:56%;overflow:hidden;background:#E2E1DA;opacity:0;display:block;color:inherit'
+const CARD = 'position:absolute;left:30%;top:20%;width:40%;height:56%;overflow:hidden;background:#E2E1DA;opacity:0;display:block;color:inherit;will-change:transform'
 
 /** Scroll-pinned card carousel: the home Services section and each service's stage-by-stage page. */
 export default function ScrollCarousel({ id, screenLabel, label, count, staticCount, items, isMobile: mob, reduced, onOpen, onBack }: Props) {
@@ -48,28 +52,49 @@ export default function ScrollCarousel({ id, screenLabel, label, count, staticCo
     const sec = ref.current; if (!sec || !animated) return
     const imgs = [...sec.querySelectorAll<HTMLElement>('[data-svc-img]')]
     const titles = [...sec.querySelectorAll<HTMLElement>('[data-svc-title]')]
+    const stage = sec.firstElementChild as HTMLElement, titleBlock = titles[0]?.parentElement
     const proxy = { p: 0 }
-    const render = () => {
-      const W = innerWidth, H = innerHeight, mobile = W < 860
+    // Layout is read once per refresh/resize, never inside the scroll frame (no forced reflow while scrolling).
+    // The stage's own height (100svh) is used, not innerHeight: on phones innerHeight grows when the address
+    // bar hides, which pushed the cards below where the title block actually sits.
+    const box = { W: 0, H: 0, mobile: false, y0: 0, band: 0, K: K_DESK, Wa: 0, Ha: 0 }
+    const measure = () => {
+      const W = stage.clientWidth, H = stage.clientHeight, mobile = innerWidth < 860
       const K = mobile ? { ...K_MOB, w: [...K_MOB.w] } : K_DESK
       if (mobile) K.w[2] = 1 - 2 * svcGutter(W) / W // active mobile card spans gutter to gutter
+      const bandBottom = mobile && titleBlock ? titleBlock.offsetTop - 16 : H
+      Object.assign(box, { W, H, mobile, K, y0: mobile ? MOB_BAND_TOP : 0, band: mobile ? Math.max(120, bandBottom - MOB_BAND_TOP) : H })
+      // Every card is laid out once at the ACTIVE card's size; per frame it is only moved/scaled (transform)
+      // and cropped (clip-path) — compositor-friendly, unlike animating width/height/left/top.
+      box.Wa = at(K.w, 0) * W; box.Ha = at(K.h, 0) * box.band
+      imgs.forEach(el => { el.style.left = '0'; el.style.top = '0'; el.style.width = box.Wa + 'px'; el.style.height = box.Ha + 'px'; el.style.transformOrigin = '50% 50%' })
+    }
+    const render = () => {
+      const { W, K, y0, band, Wa, Ha, mobile } = box
       const raw = proxy.p * (N - 1), i0 = Math.min(N - 2, Math.floor(raw)), fr = raw - i0
       const pos = i0 + ease(Math.min(1, Math.max(0, (fr - .2) / .6)))
       imgs.forEach((el, i) => {
-        const d = i - pos, w = at(K.w, d) * W, h = at(K.h, d) * H
-        el.style.width = w + 'px'; el.style.height = h + 'px'
-        el.style.left = (at(K.cx, d) * W - w / 2) + 'px'; el.style.top = (at(K.cy, d) * H - h / 2) + 'px'
+        const d = i - pos, w = at(K.w, d) * W, h = at(K.h, d) * band
+        const cx = at(K.cx, d) * W, cy = y0 + at(K.cy, d) * band
+        // Transforms only (no repaint/re-raster per frame): the card box is stretched to w×h and its overflow:hidden
+        // crops; the photo inside is counter-stretched so it stays undistorted, covering the box like object-fit:cover.
+        const sx = w / Wa, sy = h / Ha, k = Math.max(sx, sy) * at(K.s, d)
+        el.style.transform = `translate3d(${(cx - Wa / 2).toFixed(1)}px,${(cy - Ha / 2).toFixed(1)}px,0) scale(${sx.toFixed(4)},${sy.toFixed(4)})`
         el.style.opacity = String(at(K.o, d)); el.style.zIndex = String(10 - Math.round(Math.abs(d) * 3))
         const inner = el.firstElementChild as HTMLElement | null
-        if (inner) inner.style.transform = 'scale(' + at(K.s, d).toFixed(4) + ')'
+        if (inner) inner.style.transform = `scale(${(k / sx).toFixed(4)},${(k / sy).toFixed(4)})`
       })
       titles.forEach((el, i) => {
         const d = i - pos, o = Math.max(0, 1 - Math.abs(d) * 2.4)
-        el.style.opacity = String(o); el.style.transform = 'translateY(' + (d * 60).toFixed(1) + 'px)'; el.style.filter = 'blur(' + ((1 - o) * 6).toFixed(1) + 'px)'; el.style.pointerEvents = o > .5 ? 'auto' : 'none'
+        el.style.opacity = String(o); el.style.transform = 'translate3d(0,' + (d * 60).toFixed(1) + 'px,0)'
+        // Blurring text every frame is the costliest paint here; phones get the fade + slide only.
+        if (!mobile) el.style.filter = 'blur(' + ((1 - o) * 6).toFixed(1) + 'px)'
+        el.style.pointerEvents = o > .5 ? 'auto' : 'none'
       })
     }
+    measure()
     // scrub .5s stands in for the original per-frame lerp (factor .12).
-    const tw = gsap.to(proxy, { p: 1, ease: 'none', onUpdate: render, scrollTrigger: { trigger: sec, start: 'top top', end: 'bottom bottom', scrub: .5, onRefresh: render } })
+    const tw = gsap.to(proxy, { p: 1, ease: 'none', onUpdate: render, scrollTrigger: { trigger: sec, start: 'top top', end: 'bottom bottom', scrub: .5, onRefresh: () => { measure(); render() } } })
     render()
     return () => { tw.scrollTrigger?.kill(); tw.kill() }
   }, [animated, mob, N])
@@ -87,7 +112,7 @@ export default function ScrollCarousel({ id, screenLabel, label, count, staticCo
       {animated ? (
         <div style={css('position:sticky;top:0;height:100vh;height:100svh;overflow:hidden')}>
           {items.map((s, i) => {
-            const inner = <div style={css('position:absolute;inset:0')}><ImageSlot id={s.slot} placeholder={s.placeholder} src={s.src} eager /></div>
+            const inner = <div style={css('position:absolute;inset:0;will-change:transform')}><ImageSlot id={s.slot} placeholder={s.placeholder} src={s.src} eager /></div>
             return s.href
               ? <a key={i} href={s.href} onClick={open(s.href)} aria-label={'Open ' + s.title} data-svc-img={i} style={css(CARD)}>{inner}</a>
               : <div key={i} data-svc-img={i} style={css(CARD)}>{inner}</div>

@@ -26,7 +26,7 @@ export default function About({ reduced }: { reduced: boolean }) {
         s.stepT += Math.min(100, dt)
         if (s.stepT >= STEP_MS) { s.stepT = 0; setStep(x => (x + 1) % STEPS.length) }
       }
-      bars.forEach((el, i) => { el.style.transform = 'scaleX(' + (i === s.step ? Math.min(1, s.stepT / STEP_MS) : 0).toFixed(4) + ')' })
+      if (vis) bars.forEach((el, i) => { el.style.transform = 'scaleX(' + (i === s.step ? Math.min(1, s.stepT / STEP_MS) : 0).toFixed(4) + ')' })
     }
     gsap.ticker.add(tick)
     return () => { gsap.ticker.remove(tick); st.kill() }

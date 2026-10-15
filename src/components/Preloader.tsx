@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { css } from '@/lib/css'
 import { ease } from '@/lib/ease'
 import type { HeroMedia } from '@/lib/media'
@@ -14,6 +14,9 @@ export default function Preloader({ enabled, reduced, media, loaded, onDone }: P
   const pctRef = useRef<HTMLSpanElement>(null)
   const doneRef = useRef(onDone)
   doneRef.current = onDone
+  // Unmount once the curtain has lifted: its looping 'breathe' animation would otherwise keep the page rendering frames forever.
+  const [gone, setGone] = useState(false)
+  useEffect(() => { if (!loaded) return; const id = setTimeout(() => setGone(true), 1300); return () => clearTimeout(id) }, [loaded])
 
   useEffect(() => {
     let finished = false, raf = 0, to = 0
@@ -46,7 +49,7 @@ export default function Preloader({ enabled, reduced, media, loaded, onDone }: P
     return () => { cancelAnimationFrame(raf); clearTimeout(to); document.documentElement.style.overflow = '' }
   }, [enabled, reduced, media])
 
-  if (!enabled) return null
+  if (!enabled || gone) return null
   return (
     <div aria-hidden={loaded} role="status" aria-label="Loading" style={{ ...css('position:fixed;inset:0;z-index:220;background:radial-gradient(ellipse at center,#16180F 0%,#0A0A0A 70%);color:#F5F4F0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:transform 1.1s cubic-bezier(.76,0,.24,1),visibility 0s linear 1.1s'), transform: loaded ? 'translateY(-100%)' : 'none', visibility: loaded ? 'hidden' : 'visible' }}>
       <div style={css('position:relative;width:clamp(88px,12vw,128px);aspect-ratio:1;animation:uqBreathe 2.4s ease-in-out infinite')}>

@@ -42,6 +42,7 @@ export const STEPS: [string, string, string[], string, string, string][] = [
 // [name, type, place, year, aspect, photo?] — empty place/year are hidden.
 export const PROJECTS: [string, string, string, string, string, string?][] = [
   ['Timber Cottage & Pool', 'Farmhouse & Resorts', '', '', '1/1', '/assets/projects/timber-cottage-pool.jpg'],
+  ['Round Pools & Mural Garden', 'Pools & Landscaping', '', '', '1/1', '/assets/projects/round-pools-mural-garden.jpg'],
   ['The Aranya Resort', 'Resort', 'Alibaug', '2025', '4/5'],
   ['Villa Neel', 'Pool & Landscape', 'Goa', '2024', '4/3'],
   ['Kesar Farmhouse', 'Farmhouse', 'Lonavala', '2024', '4/3'],

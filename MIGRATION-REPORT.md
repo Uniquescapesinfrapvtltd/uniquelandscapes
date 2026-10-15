@@ -386,3 +386,4 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 ## 30. New statement and regions
 - Statement now reads: "We transform visionary ideas into extraordinary destinations through end-to-end resort and farmhouse development, bespoke landscapes, architectural swimming pools, and precision-crafted outdoor *spaces.*" (same word-by-word scroll reveal; the last word is emphasised). The text is longer, so the size is now clamp(32px,4.4vw,76px) at max 26ch: 8 lines at 1280×860, 9 at 375×812.
 - "Mumbai · Pune · Goa" is replaced by **Telangana · Andhra Pradesh · Tamil Nadu · Karnataka · Maharashtra** under the statement, in Enquire, and in the footer list. The "Studios" label is now "Where we work".
+- Statement opening changed from "We transform" to "We design and build" at the user's request.

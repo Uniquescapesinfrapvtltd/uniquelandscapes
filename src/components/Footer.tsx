@@ -105,7 +105,7 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
             {'Uniquescapes'.split('').map((l, i) => <span key={i} aria-hidden="true" className="hv-letter" style={css('display:inline-block;transition:transform .6s cubic-bezier(.22,1,.36,1),color .4s ease')}>{l}</span>)}
           </div>
           <div style={css('display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:20px;border-top:1px solid rgba(245,244,240,.18);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,244,240,.6)')}>
-            <span>© 2026 Uniquescapes Infra</span><span>Landscape · Pools · Resorts · Construction</span>
+            <span>© 2026 Uniquescapes Infra</span><span>Landscape · Pools · Farmhouse & Resorts · 3D Designs</span>
           </div>
         </div>
       </div>

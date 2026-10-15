@@ -29,8 +29,8 @@ export const SCENES: Scene[] = [
 export const SERVICES: [string, string, string[], string[]][] = [
   ['Luxury Landscaping', 'Landscaped gardens, planting design, lawns and stone paths that mature beautifully.', ['Planting design', 'Lawns & groundcover', 'Stone paths & steps', 'Garden lighting'], ['Landscaping — signature garden', 'Planting detail', 'Stone path', 'Lawn & trees', 'Garden at dusk']],
   ['Swimming Pool Construction', 'Premium pools, water details and poolside design engineered to last.', ['Infinity & lap pools', 'Water features', 'Pool decks', 'Filtration & plant'], ['Pool — wide view', 'Infinity edge', 'Pool deck', 'Water feature', 'Pool lit at night']],
-  ['Resort & Farmhouse Development', 'Modern villas, resort architecture and outdoor living, from masterplan to handover.', ['Masterplanning', 'Villas & cottages', 'Outdoor living', 'Approach & driveways'], ['Resort — aerial or façade', 'Villa entrance', 'Outdoor lounge', 'Farmhouse approach', 'Interior to garden']],
-  ['Residential & Commercial Construction', 'Contemporary buildings delivered with refined architectural detail.', ['Homes & bungalows', 'Offices & retail', 'Façades & cladding', 'Turnkey interiors'], ['Building — street façade', 'Material detail', 'Entrance lobby', 'Courtyard', 'Under construction']],
+  ['Farmhouse & Resorts', 'Farmhouses, resort villas and outdoor living, from masterplan to handover.', ['Farmhouses', 'Resort villas & cottages', 'Masterplanning', 'Outdoor living'], ['Farmhouse — aerial or façade', 'Farmhouse approach', 'Resort villa entrance', 'Outdoor lounge', 'Interior to garden']],
+  ['3D Designs', 'Photoreal 3D renders and walkthroughs — see the finished space before a single stone is laid.', ['3D renders', 'Walkthrough videos', 'Landscape & pool visuals', 'Materials & lighting'], ['3D render — hero view', 'Render detail', 'Night render', 'Aerial render', 'Walkthrough still']],
 ]
 
 // [title, body, items, placeholder, role, quote]
@@ -54,12 +54,12 @@ export const TESTIMONIALS: [string, string, string][] = [
   ['Weekly updates, honest timelines, and a finish that our guests still ask about. We would build with them again.', 'Family owners', 'Kesar Farmhouse · Lonavala'],
 ]
 
-export const PROJECT_TYPES =['Landscaping', 'Swimming pool', 'Resort', 'Farmhouse', 'Residential', 'Commercial']
+export const PROJECT_TYPES =['Landscaping', 'Swimming pool', 'Resort', 'Farmhouse', 'Residential', 'Commercial', '3D design']
 
 export const STATEMENT = ['We', 'design', 'and', 'build', 'landscapes,', 'pools', 'and', 'architecture', 'for', 'people', 'who', 'expect', 'the', 'outdoors', 'to', 'feel', 'as', 'considered', 'as', 'the']
 
 // Slug per service (same order as SERVICES); used in ?service=<slug>.
-export const SERVICE_SLUGS = ['landscaping', 'pools', 'resorts', 'construction']
+export const SERVICE_SLUGS = ['landscaping', 'pools', 'resorts', '3d-designs']
 
 export interface ServicePageContent { name: string; stages: [tag: string, title: string, body: string, placeholder: string, photo?: string][] }
 
@@ -69,7 +69,7 @@ export const SERVICE_CARD_PHOTOS: Record<string, string> = {
 }
 
 // Stage-by-stage pages opened from the Services carousel.
-// Landscaping copy is from the design recording. Pools, Resorts and Construction are DRAFT copy written
+// Landscaping copy is from the design recording. Pools, Farmhouse & Resorts and 3D Designs are DRAFT copy written
 // from each service's description/feature list — replace with approved text when the designs arrive.
 export const SERVICE_PAGES: Record<string, ServicePageContent> = {
   landscaping: {
@@ -92,21 +92,21 @@ export const SERVICE_PAGES: Record<string, ServicePageContent> = {
     ],
   },
   resorts: {
-    name: 'Resorts & Farmhouses',
+    name: 'Farmhouse & Resorts',
     stages: [
       ['Stage 1', 'Masterplan', 'We plan the whole site first — the approach, the views, the villas and the outdoor spaces between them.', 'Stage 1 — site masterplan'],
-      ['Stage 2', 'Villas & Cottages', 'Foundations, frames and roofs for every villa and cottage, built by our own crews to the drawings.', 'Stage 2 — villas under construction'],
+      ['Stage 2', 'Farmhouses & Villas', 'Foundations, frames and roofs for every farmhouse, villa and cottage, built by our own crews to the drawings.', 'Stage 2 — villas under construction'],
       ['Stage 3', 'Outdoor Living', 'Lounges, decks, driveways and landscape draw the buildings together into one place.', 'Stage 3 — outdoor lounge & approach'],
-      ['Finished', 'The Finished Resort', 'Interiors open to the garden, every detail resolved, handed over ready for the first guests.', 'Finished — resort at dusk'],
+      ['Finished', 'The Finished Retreat', 'Interiors open to the garden, every detail resolved, handed over ready for the first guests or the first weekend.', 'Finished — farmhouse or resort at dusk'],
     ],
   },
-  construction: {
-    name: 'Construction',
+  '3d-designs': {
+    name: '3D Designs',
     stages: [
-      ['Stage 1', 'Design & Approvals', 'Drawings, structure and services are resolved early and taken through approvals before ground is broken.', 'Stage 1 — drawings & site'],
-      ['Stage 2', 'Structure', 'Foundations, frame and slabs rise on a planned sequence, inspected at every stage.', 'Stage 2 — structure rising'],
-      ['Stage 3', 'Façade & Services', 'Cladding, glazing and building services close the building in with refined architectural detail.', 'Stage 3 — façade & services'],
-      ['Finished', 'Handover', 'Turnkey interiors, a final inspection and a building ready to move into on day one.', 'Finished — completed building'],
+      ['Stage 1', 'Brief & Site Study', 'We start with how you want to live and the land you have — photos, levels and views of the real site.', 'Stage 1 — site photos & brief'],
+      ['Stage 2', 'Concept & Layout', 'Plans and sketches settle the layout: where the pool, lawn, paths and buildings sit and how they connect.', 'Stage 2 — concept layout'],
+      ['Stage 3', '3D Model & Materials', 'The design is modelled in 3D with real materials, planting and lighting, so every choice can be seen and changed.', 'Stage 3 — 3D model'],
+      ['Finished', 'Renders & Walkthrough', 'Photoreal day and night renders and a walkthrough video — the finished space, before construction begins.', 'Finished — final 3D render'],
     ],
   },
 }

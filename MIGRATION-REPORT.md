@@ -352,3 +352,7 @@ Build passes (`tsc --noEmit && vite build`); no console errors.
 - **Adding designs needs no code:** drop images into `src/assets/designs/<slug>/` (`landscaping`, `pools`, `resorts`, `construction`). `src/data/designs.ts` picks them up with `import.meta.glob`. The file name sets order and caption: `07-infinity-pool-villa-neel.jpg` becomes design 07, "Infinity pool villa neel". A service with no images shows no gallery.
 - Seeded with the 5 real pool photos already on the site. Images are lazy-loaded; keep each around 1600px wide and under ~400KB (30 per service).
 - Verified at 1280×860 (3 columns, viewer next/prev/arrow-key/Esc) and 375×812 (1 column at the 20px gutters, no horizontal scroll).
+
+## 24. Service renames
+- Service 3 is now **Farmhouse & Resorts** (title, description, features, stage page name; stage 2 "Farmhouses & Villas", finished stage "The Finished Retreat").
+- Service 4 "Residential & Commercial Construction" is now **3D Designs**, with new draft stages (Brief & Site Study, Concept & Layout, 3D Model & Materials, Renders & Walkthrough). Its URL is `?service=3d-designs` and its gallery folder is `src/assets/designs/3d-designs/`. The footer line and enquiry project types ("3D design" added) were updated to match.

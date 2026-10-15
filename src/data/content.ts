@@ -39,7 +39,9 @@ export const STEPS: [string, string, string[], string, string, string][] = [
   ['Founder Name', 'Leads engineering and construction. A civil engineer who built the in-house crews that let us deliver pools, structures and services to the drawing.', ['Civil engineering', 'Pools & structures', 'Site delivery'], 'Portrait — founder 2', 'Co-founder · Projects Director', 'What we promise on paper, we build on site — line for line.'],
 ]
 
-export const PROJECTS: [string, string, string, string, string][] = [
+// [name, type, place, year, aspect, photo?] — empty place/year are hidden.
+export const PROJECTS: [string, string, string, string, string, string?][] = [
+  ['Timber Cottage & Pool', 'Farmhouse & Resorts', '', '', '1/1', '/assets/projects/timber-cottage-pool.jpg'],
   ['The Aranya Resort', 'Resort', 'Alibaug', '2025', '4/5'],
   ['Villa Neel', 'Pool & Landscape', 'Goa', '2024', '4/3'],
   ['Kesar Farmhouse', 'Farmhouse', 'Lonavala', '2024', '4/3'],

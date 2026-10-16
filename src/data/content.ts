@@ -5,6 +5,11 @@ export const HERO_VIDEO = '/assets/hero-pool-optimized.mp4'
 // Same encode at 1280×720 (6.3 MB vs 11.4 MB) for viewports under the 860px mobile breakpoint.
 export const HERO_VIDEO_MOBILE = '/assets/hero-pool-optimized-1280.mp4'
 
+export const PHONE = '+91 99636 22727'
+export const TEL = 'tel:+919963622727'
+export const WHATSAPP = 'https://wa.me/919963622727?text=' + encodeURIComponent('Hi Uniquescapes Infra, I would like to enquire about a project.')
+export const INSTAGRAM = 'https://www.instagram.com/uniquescapesinfra_pvtltd/'
+
 export interface Scene { name: string; title: string; at: number; facts: [string, string][] }
 
 export const SCENES: Scene[] = [

@@ -14,6 +14,7 @@ import About from '@/components/About'
 import Testimonials from '@/components/Testimonials'
 import Enquire from '@/components/Enquire'
 import Footer from '@/components/Footer'
+import WhatsAppButton from '@/components/WhatsAppButton'
 import ServicePage from '@/components/ServicePage'
 import { SERVICE_PAGES } from '@/data/content'
 
@@ -137,6 +138,7 @@ export default function App({ scrollLength = 500, preloader = true }: Props) {
         </>
       )}
       <Footer reduced={reduced} finePointer={finePointer} />
+      <WhatsAppButton loaded={loaded} />
     </>
   )
 }

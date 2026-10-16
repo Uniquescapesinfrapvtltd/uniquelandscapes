@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { css } from '@/lib/css'
 import { ScrollTrigger } from '@/lib/gsap'
+import { INSTAGRAM, PHONE, TEL, WHATSAPP } from '@/data/content'
 
 const CAPS6 = 'font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:rgba(245,244,240,.6)'
 const LIST = "font-family:'Cormorant Garamond',serif;font-size:24px;display:flex;flex-direction:column;gap:6px"
@@ -62,7 +63,7 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
   }
 
   return (
-    <footer ref={footRef} data-screen-label="Footer" style={css('background:#0A0A0A;color:#F5F4F0;padding:clamp(72px,12vh,128px) clamp(20px,5vw,72px) 28px;overflow:hidden;border-top:1px solid rgba(245,244,240,.15)')}>
+    <footer ref={footRef} data-screen-label="Footer" style={css('background:#0A0A0A;color:#F5F4F0;padding:clamp(72px,12vh,128px) clamp(20px,5vw,72px) 96px;overflow:hidden;border-top:1px solid rgba(245,244,240,.15)')}>
       <div style={css('max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(56px,9vh,96px)')}>
         <div style={css('display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:48px clamp(32px,5vw,80px);align-items:end')}>
           <div style={css('display:flex;flex-direction:column;gap:20px')}>
@@ -87,12 +88,16 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
               <span style={css("font-family:'Cormorant Garamond',serif;font-size:24px")}>info@uniquescapesinfra.com</span>
               <span style={{ ...css('font-size:11px;letter-spacing:.3em;text-transform:uppercase'), color: copied ? '#7A8C5E' : 'rgba(245,244,240,.6)' }}>{copied ? 'Copied ✓' : 'Copy'}</span>
             </button>
+            <a href={TEL} className="hv-olive-ink" style={css('display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:16px;border-top:1px solid rgba(245,244,240,.18)')}>
+              <span style={css("font-family:'Cormorant Garamond',serif;font-size:24px;white-space:nowrap")}>{PHONE}</span>
+              <span style={css('font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,244,240,.6)')}>Call</span>
+            </a>
           </div>
         </div>
         <div style={css('display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:36px 24px;padding-top:40px;border-top:1px solid rgba(245,244,240,.18)')}>
           <div style={css('display:flex;flex-direction:column;gap:14px')}><span style={css(CAPS6)}>Navigate</span><div style={css(LIST)}><a href="#services">Services</a><a href="#projects">Projects</a><a href="#studio">About</a><a href="#enquire">Enquire</a></div></div>
           <div style={css('display:flex;flex-direction:column;gap:14px')}><span style={css(CAPS6)}>Where we work</span><div style={css(LIST)}><span>Telangana</span><span>Andhra Pradesh</span><span>Tamil Nadu</span><span>Karnataka</span><span>Maharashtra</span></div></div>
-          <div style={css('display:flex;flex-direction:column;gap:14px')}><span style={css(CAPS6)}>Follow</span><div style={css(LIST)}><a href="#">Instagram</a><a href="#">LinkedIn</a></div></div>
+          <div style={css('display:flex;flex-direction:column;gap:14px')}><span style={css(CAPS6)}>Follow</span><div style={css(LIST)}><a href={INSTAGRAM} target="_blank" rel="noopener noreferrer">Instagram</a><a href={WHATSAPP} target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div>
           <div style={css('display:flex;align-items:flex-start')}>
             <a href="#top" aria-label="Back to top" className="hv-pill" style={css('position:relative;display:flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:50%;font-size:10px;letter-spacing:.3em;text-transform:uppercase;text-align:center;line-height:1.4;transition:background .3s,color .3s')}>
               <svg viewBox="0 0 96 96" width="96" height="96" style={css('position:absolute;inset:0;transform:rotate(-90deg);pointer-events:none')}><circle cx="48" cy="48" r="47" fill="none" stroke="rgba(245,244,240,.2)" strokeWidth="1"></circle><circle ref={ringRef} cx="48" cy="48" r="47" fill="none" stroke="#7A8C5E" strokeWidth="2" strokeDasharray="295.3" strokeDashoffset="295.3"></circle></svg>

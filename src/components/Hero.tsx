@@ -53,7 +53,7 @@ export default function Hero({ media, loaded, isMobile: mob, reduced, preloader,
   return (
     <section id="top" ref={heroRef} data-cursor="Scroll" data-screen-label="Hero — scroll journey" style={{ ...css('position:relative;background:#0A0A0A'), height: (mob ? Math.round(scrollLength * .7) : scrollLength) + 'vh' }}>
       <div style={css('position:sticky;top:0;height:100vh;height:100svh;min-height:540px;overflow:hidden;color:#F5F4F0')}>
-        <video ref={videoRef} muted playsInline preload="auto" disablePictureInPicture style={css('position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 60%')}></video>
+        <video ref={videoRef} muted playsInline preload="auto" poster="/assets/hero-poster.jpg" disablePictureInPicture style={css('position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 60%')}></video>
         {videoFailed && <div style={css('position:absolute;inset:0')}><ImageSlot id="hero-fallback" placeholder="Fallback still — villa and pool" /></div>}
         <div style={css('position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(10,10,10,.62) 0%,rgba(10,10,10,0) 22%,rgba(10,10,10,0) 50%,rgba(10,10,10,.86) 100%)')}></div>
         <div style={css('position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(10,10,10,.55) 0%,rgba(10,10,10,0) 40%)')}></div>

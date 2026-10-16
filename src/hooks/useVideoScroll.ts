@@ -31,6 +31,8 @@ export function useVideoScroll({ src, media, loaded, reduced, onNavSolid }: Opti
     let unmounted = false, blobUrl = '', lastScene = 0
     let target = 0, seeking = false, seekAt = 0
 
+    // iOS (Safari, in-app browsers) ignores preload and paints no frame until play() has run once.
+    const prime = () => { v.load(); v.play().then(() => v.pause(), () => { /* Low Power Mode blocks play — poster stays */ }) }
     // Download the whole clip once: drives the preloader % and keeps every seek local (no range requests mid-scrub).
     const load = async () => {
       try {
@@ -39,8 +41,8 @@ export function useVideoScroll({ src, media, loaded, reduced, onNavSolid }: Opti
         const total = +(res.headers.get('content-length') || 0), reader = res.body.getReader(), parts: Uint8Array[] = []; let got = 0
         for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); got += value.length; if (total) media.loadPct = got / total; if (unmounted) return }
         blobUrl = URL.createObjectURL(new Blob(parts, { type: 'video/mp4' })); media.loadPct = 1
-        v.src = blobUrl
-      } catch { if (!unmounted) { media.loadPct = 1; v.src = src } } // fall back to streaming
+        v.src = blobUrl; prime()
+      } catch { if (!unmounted) { media.loadPct = 1; v.src = src; prime() } } // fall back to streaming
     }
 
     const onSeeking = () => { seeking = true; seekAt = performance.now() }

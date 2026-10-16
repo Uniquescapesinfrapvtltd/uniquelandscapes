@@ -55,7 +55,7 @@ export default function Statement({ reduced }: { reduced: boolean }) {
           ))}
         </dl>
         <div style={css('display:flex;flex-direction:column;align-items:center;gap:14px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#3A3A36')}>
-          <span style={css('max-width:42ch;line-height:2;text-wrap:balance')}>Telangana · Andhra Pradesh · Tamil Nadu · Karnataka · Maharashtra</span>
+          <span style={css('max-width:42ch;line-height:2;text-wrap:balance')}>{'Telangana · Andhra\u00A0Pradesh · Tamil\u00A0Nadu · Karnataka · Maharashtra'}</span>
           <span style={css('width:1px;height:56px;background:linear-gradient(#0A0A0A,rgba(10,10,10,0))')}></span>
         </div>
       </div>

@@ -32,7 +32,7 @@ export function useVideoScroll({ src, media, loaded, reduced, onNavSolid }: Opti
     let target = 0, seeking = false, seekAt = 0
 
     // iOS (Safari, in-app browsers) ignores preload and paints no frame until play() has run once.
-    const prime = () => { v.load(); v.play().then(() => v.pause(), () => { /* Low Power Mode blocks play — poster stays */ }) }
+    const prime = () => { v.muted = true; v.setAttribute('muted', ''); v.load(); v.play().then(() => v.pause(), () => { /* Low Power Mode blocks play — poster stays */ }) }
     // Download the whole clip once: drives the preloader % and keeps every seek local (no range requests mid-scrub).
     const load = async () => {
       try {
@@ -47,7 +47,11 @@ export function useVideoScroll({ src, media, loaded, reduced, onNavSolid }: Opti
 
     const onSeeking = () => { seeking = true; seekAt = performance.now() }
     const onSeeked = () => { seeking = false }
-    const onError = () => { media.failed = true; setVideoFailed(true) }
+    // A browser that rejects the downloaded blob gets one retry streaming the file directly; after that, the poster still shows.
+    const onError = () => {
+      if (blobUrl && v.src === blobUrl) { v.src = src; prime(); return }
+      media.failed = true; setVideoFailed(true)
+    }
     try { v.pause(); v.currentTime = 0 } catch { /* ignore */ }
     v.addEventListener('seeking', onSeeking)
     v.addEventListener('seeked', onSeeked)

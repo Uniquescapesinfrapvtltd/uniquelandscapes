@@ -89,7 +89,7 @@ export default function Footer({ reduced, finePointer }: { reduced: boolean; fin
               <span style={{ ...css('font-size:11px;letter-spacing:.3em;text-transform:uppercase'), color: copied ? '#7A8C5E' : 'rgba(245,244,240,.6)' }}>{copied ? 'Copied ✓' : 'Copy'}</span>
             </button>
             <a href={TEL} className="hv-olive-ink" style={css('display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:16px;border-top:1px solid rgba(245,244,240,.18)')}>
-              <span style={css("font-family:'Cormorant Garamond',serif;font-size:24px;white-space:nowrap")}>{PHONE}</span>
+              <span style={css("font-family:'DM Sans',sans-serif;font-weight:300;font-size:21px;letter-spacing:.02em;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap")}>{PHONE}</span>
               <span style={css('font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,244,240,.6)')}>Call</span>
             </a>
           </div>

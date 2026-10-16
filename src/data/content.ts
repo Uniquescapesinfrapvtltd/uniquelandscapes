@@ -51,12 +51,13 @@ export const PROJECTS: [string, string, string, string, string, string?][] = [
   ['Timber Cabins & Garden Pool', 'Farmhouse & Resorts', '', '', '1/1', '/assets/projects/timber-cabins-garden-pool.jpg'],
 ]
 
-// [quote, who, project · place]
-// DRAFT — sample copy so the section can be reviewed. Replace with real, approved client quotes before launch.
-export const TESTIMONIALS: [string, string, string][] = [
-  ['They understood the land before they drew a single line. Two years on, the garden looks better every season.', 'Owner', 'Villa Neel · Goa'],
-  ['One team for the cottages, the pool and the landscape — and nothing was lost between the drawing and the site.', 'Managing partner', 'The Aranya Resort · Alibaug'],
-  ['Weekly updates, honest timelines, and a finish that our guests still ask about. We would build with them again.', 'Family owners', 'Kesar Farmhouse · Lonavala'],
+// [quote, who, project · place (optional)] — client words as sent by the owner; only spacing, punctuation and spelling tidied.
+export const TESTIMONIALS: [string, string, string?][] = [
+  ['Working with this vendor was a great experience. The execution of the project was top-notch, delivered with high quality and attention to detail. The team was professional, committed, and completed the work on time without compromising standards. I highly recommend them to anyone looking for reliable and skilled project execution. Very professional and trustworthy. Highly recommended!', 'Bhargav Sai Kattla'],
+  ['The Unique Landscaping guys are very talented and creative people. They made my dream project come true, alive and beautiful. Charan and Akhil became our family members. By choosing the name Unique Scapes itself means they are unique in creating beautiful things. I have the most memorable moments with the guys. I wholeheartedly wish them continued success and happiness in all their future endeavors. It’s clear that our connection is meant to be. Thank you again for making my dream a reality. I look forward to cherishing the beauty you have created for years to come.', 'Sri Lakshmi'],
+  ['It is beyond what I had imagined. Your crew was knowledgeable and courteous. Great people to work with.', 'Govind Babu'],
+  ['I made calls to some landscaping companies and got huge estimates. My friend suggested Unique Scapes, and here I got the best and most reasonable price. I’m very happy and satisfied with their work. These guys are young stars and very professional. Thank you.', 'Arun Shetty'],
+  ['The way they promised and provided the service was excellent. Happy with their work. Keep it up, all the best!', 'Vijendhar Reddy'],
 ]
 
 export const PROJECT_TYPES =['Landscaping', 'Swimming pool', 'Resort', 'Farmhouse', 'Residential', 'Commercial', '3D design']

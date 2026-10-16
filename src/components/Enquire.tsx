@@ -44,8 +44,8 @@ export default function Enquire() {
           <h2 style={css("margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(60px,7.6vw,128px);line-height:.88")}>Begin a <em style={css('font-weight:400')}>project.</em></h2>
           <div style={css('display:flex;flex-wrap:wrap;gap:12px 40px;pointer-events:auto')}>
             <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Write</span><a href="mailto:info@uniquescapesinfra.com" style={css("font-family:'Cormorant Garamond',serif;font-size:26px")}>info@uniquescapesinfra.com</a></div>
-            <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Call</span><a href={TEL} style={css("font-family:'Cormorant Garamond',serif;font-size:26px;white-space:nowrap")}>{PHONE}</a></div>
-            <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Where we work</span><span style={css("font-family:'Cormorant Garamond',serif;font-size:26px;text-wrap:balance")}>{'Telangana · Andhra\u00A0Pradesh · Tamil\u00A0Nadu · Karnataka · Maharashtra'}</span></div>
+            <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Call</span><a href={TEL} style={css("font-family:'DM Sans',sans-serif;font-weight:300;font-size:22px;line-height:1.35;letter-spacing:.02em;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap")}>{PHONE}</a></div>
+            <div style={css('display:flex;flex-direction:column;gap:6px')}><span style={css(LABEL)}>Where we work</span><span style={css("font-family:'Cormorant Garamond',serif;font-size:26px;text-wrap:balance")}>{'Telangana\u00A0· Andhra\u00A0Pradesh\u00A0· Tamil\u00A0Nadu\u00A0· Karnataka\u00A0· Maharashtra'}</span></div>
           </div>
         </div>
       </div>

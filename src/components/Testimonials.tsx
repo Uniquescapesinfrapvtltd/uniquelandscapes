@@ -49,9 +49,9 @@ export default function Testimonials({ reduced }: { reduced: boolean }) {
 
   const go = (d: number) => { t.current.stepT = 0; setLive(true); setStep(x => (x + d + N) % N) }
   const [quote, who, project] = TESTIMONIALS[step]
-  // Long quotes set smaller and wider so every one fits on a screen.
+  // Every quote spans the full width; longer ones set smaller so each fits on a screen.
   const w = WORDS[step]
-  const size = w > 60 ? 'font-size:clamp(20px,2.1vw,34px);line-height:1.25;max-width:52ch' : w > 30 ? 'font-size:clamp(24px,2.9vw,46px);line-height:1.15;max-width:34ch' : 'font-size:clamp(34px,4.6vw,72px);line-height:1.04;max-width:22ch'
+  const size = w > 60 ? 'font-size:clamp(20px,2.1vw,38px);line-height:1.3' : w > 30 ? 'font-size:clamp(24px,2.7vw,48px);line-height:1.2' : 'font-size:clamp(34px,4.6vw,72px);line-height:1.08'
 
   return (
     <section id="testimonials" ref={secRef} data-screen-label="Testimonials" style={css('background:#E8E8E2;color:#0A0A0A;padding:clamp(96px,14vh,160px) clamp(20px,5vw,72px)')}>

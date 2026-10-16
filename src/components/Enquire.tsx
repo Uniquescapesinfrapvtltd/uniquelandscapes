@@ -37,9 +37,9 @@ export default function Enquire() {
 
   return (
     <section id="enquire" data-screen-label="Enquire" style={css('background:#0A0A0A;color:#F5F4F0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr))')}>
-      <div style={css('position:relative;min-height:clamp(420px,70vh,820px);overflow:hidden;background:#1a1a1a')}>
-        <ImageSlot id="enquire-image" placeholder="Finished garden at dusk" />
-        <div style={css('position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(10,10,10,.85),rgba(10,10,10,0) 60%)')}></div>
+      <div style={css('position:relative;min-height:clamp(600px,85vh,820px);overflow:hidden;background:#1a1a1a')}>
+        <ImageSlot id="enquire-image" placeholder="Lit pool, dolphin fountain and timber cottage at dusk" src="/assets/enquire-pool-cottage.webp" />
+        <div style={css('position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(10,10,10,.92),rgba(10,10,10,.6) 45%,rgba(10,10,10,0) 80%)')}></div>
         <div style={css('position:absolute;left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px);bottom:clamp(28px,5vh,56px);display:flex;flex-direction:column;gap:28px;pointer-events:none')}>
           <h2 style={css("margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(60px,7.6vw,128px);line-height:.88")}>Begin a <em style={css('font-weight:400')}>project.</em></h2>
           <div style={css('display:flex;flex-wrap:wrap;gap:12px 40px;pointer-events:auto')}>

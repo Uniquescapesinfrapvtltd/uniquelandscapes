@@ -9,8 +9,7 @@ export interface Scene { name: string; title: string; at: number; facts: [string
 
 export const SCENES: Scene[] = [
   { name: 'The Villa', title: 'Villa', at: 0, facts: [
-    ['Architecture', 'A two-storey villa with tiled pitched roofs and carved timber verandas.'],
-    ['Craft', 'Hand-finished columns, brackets and balustrades in warm hardwood.'],
+    ['Our Promise', 'From concept to completion, we bring your dream villa to life through complete design, development and execution.'],
     ['Light', 'Soft wall lanterns that hold the house in the dusk.']] },
   { name: 'Lawn & Pavilion', title: 'Garden', at: .3, facts: [
     ['Lawn', 'A broad, level lawn crossed by a stepping-stone path.'],

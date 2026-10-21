@@ -7,7 +7,7 @@ import ImageSlot from '@/components/ImageSlot'
 
 interface Props { media: HeroMedia; loaded: boolean; isMobile: boolean; reduced: boolean; preloader: boolean; scrollLength: number; onNavSolid: (solid: boolean) => void }
 
-export default function Hero({ media, loaded, isMobile: mob, reduced, preloader, scrollLength, onNavSolid }: Props) {
+export default function Hero({ media, loaded, isMobile: mob, reduced, preloader, scrollLength = 500, onNavSolid }: Props) {
   // Picked once at mount: swapping src on resize would re-download the clip and reset the scrub.
   const [videoSrc] = useState(() => (innerWidth < 860 ? HERO_VIDEO_MOBILE : HERO_VIDEO))
   const { heroRef, videoRef, barRef, scene, videoFailed } = useVideoScroll({ src: videoSrc, media, loaded, reduced, onNavSolid })
@@ -26,9 +26,11 @@ export default function Hero({ media, loaded, isMobile: mob, reduced, preloader,
 
   const animateScene = (first: boolean) => {
     const E = 'cubic-bezier(.16,1,.3,1)'
-    titleRef.current?.animate([{ opacity: 0, filter: 'blur(12px)', transform: 'translateY(42px)' }, { opacity: 1, filter: 'blur(0)', transform: 'translateY(0)' }], { duration: first ? 1050 : 900, easing: E, fill: 'backwards' })
+    const blurTitle = mob ? '0px' : '12px'
+    const blurFacts = mob ? '0px' : '7px'
+    titleRef.current?.animate([{ opacity: 0, filter: `blur(${blurTitle})`, transform: 'translateY(42px)' }, { opacity: 1, filter: 'blur(0)', transform: 'translateY(0)' }], { duration: first ? 1050 : 900, easing: E, fill: 'backwards' })
     const fl = factsRef.current
-    if (fl) [...fl.children].forEach((row, i) => row.animate([{ opacity: 0, filter: 'blur(7px)', transform: 'translateY(18px)' }, { opacity: 1, filter: 'blur(0)', transform: 'translateY(0)' }], { duration: 720, delay: (first ? 520 : 120) + i * 110, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' }))
+    if (fl) [...fl.children].forEach((row, i) => row.animate([{ opacity: 0, filter: `blur(${blurFacts})`, transform: 'translateY(18px)' }, { opacity: 1, filter: 'blur(0)', transform: 'translateY(0)' }], { duration: 720, delay: (first ? 520 : 120) + i * 110, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' }))
     const li = listRef.current
     if (li && !first) [...li.children].forEach((row, i) => row.animate([{ transform: 'translateX(-8px)' }, { transform: 'translateX(0)' }], { duration: 580, delay: 20 + i * 30, easing: 'cubic-bezier(.22,1,.36,1)' }))
   }
@@ -49,14 +51,15 @@ export default function Hero({ media, loaded, isMobile: mob, reduced, preloader,
   const chromeOpacity = loaded ? 1 : 0
   const sceneNumber = '0' + (scene + 1) + ' / 04'
   const factList = mob ? S.facts.slice(0, 2) : S.facts
+  const heroHeight = (mob ? Math.round(scrollLength * .7) : scrollLength) + 'vh'
 
   return (
-    <section id="top" ref={heroRef} data-cursor="Scroll" data-screen-label="Hero — scroll journey" style={{ ...css('position:relative;background:#0A0A0A'), height: (mob ? Math.round(scrollLength * .7) : scrollLength) + 'vh' }}>
-      <div style={css('position:sticky;top:0;height:100vh;height:100svh;min-height:540px;overflow:hidden;color:#F5F4F0')}>
-        <video ref={videoRef} muted playsInline preload="auto" poster="/assets/hero-poster.jpg" disablePictureInPicture style={css('position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 60%')}></video>
-        {videoFailed && <div style={css('position:absolute;inset:0')}><ImageSlot id="hero-fallback" placeholder="Villa at dusk" src="/assets/hero-poster.jpg" eager /></div>}
-        <div style={css('position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(10,10,10,.62) 0%,rgba(10,10,10,0) 22%,rgba(10,10,10,0) 50%,rgba(10,10,10,.86) 100%)')}></div>
-        <div style={css('position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(10,10,10,.55) 0%,rgba(10,10,10,0) 40%)')}></div>
+    <section id="top" ref={heroRef} data-cursor="Scroll" data-screen-label="Hero — scroll journey" style={{ ...css('position:relative;background:#0A0A0A'), height: heroHeight }}>
+      <div style={{ ...css('position:sticky;top:0;width:100%;overflow:hidden;color:#F5F4F0'), height: mob ? '100dvh' : '100vh', minHeight: mob ? undefined : '540px' }}>
+        <video ref={videoRef} muted playsInline preload="auto" poster="/assets/hero-cottage-poster.jpg" disablePictureInPicture style={{ ...css('position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 60%'), transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)', willChange: 'transform', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}></video>
+        {videoFailed && <div style={css('position:absolute;inset:0')}><ImageSlot id="hero-fallback" placeholder="Timber cottage and pool at dusk" src="/assets/hero-cottage-poster.jpg" eager /></div>}
+        <div style={{ ...css('position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,rgba(10,10,10,.62) 0%,rgba(10,10,10,0) 22%,rgba(10,10,10,0) 50%,rgba(10,10,10,.86) 100%)'), transform: 'translateZ(0)' }}></div>
+        <div style={{ ...css('position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(10,10,10,.55) 0%,rgba(10,10,10,0) 40%)'), transform: 'translateZ(0)' }}></div>
 
         <aside style={{ ...css('position:absolute;left:var(--gutter);top:50%;align-items:stretch;gap:18px;transition:opacity .9s cubic-bezier(.22,1,.36,1) .65s,transform .9s cubic-bezier(.22,1,.36,1) .65s'), display: mob ? 'none' : 'flex', opacity: chromeOpacity, transform: `translate(${loaded ? '0px' : '-20px'},-43%)` }}>
           <div style={css('width:1px;background:rgba(245,244,240,.25);position:relative')}><div ref={barRef} style={css('position:absolute;inset:0;background:#F5F4F0;transform:scaleY(0);transform-origin:top')}></div></div>

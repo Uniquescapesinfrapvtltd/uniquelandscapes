@@ -1,9 +1,9 @@
 // Content lifted verbatim from the original component's class fields.
 
-// Re-encoded from uploads/Camera_moving_toward_swimming_pool_20261014115109.mp4 with a 10-frame GOP (see MIGRATION-REPORT.md).
-export const HERO_VIDEO = '/assets/hero-pool-optimized.mp4'
-// Same encode at 1280×720 (6.3 MB vs 11.4 MB) for viewports under the 860px mobile breakpoint.
-export const HERO_VIDEO_MOBILE = '/assets/hero-pool-optimized-1280.mp4'
+// Re-encoded from website-video.mp4: 24 fps, 10-frame GOP, CRF 20 + light unsharp, faststart, no audio.
+export const HERO_VIDEO = '/assets/hero-cottage.mp4'
+// Phones get the 1080p file too: a 720p clip stretched over a 3x-density screen looked blurry.
+export const HERO_VIDEO_MOBILE = HERO_VIDEO
 
 export const PHONE = '+91 99636 22727'
 export const TEL = 'tel:+919963622727'
@@ -13,21 +13,29 @@ export const INSTAGRAM = 'https://www.instagram.com/uniquescapesinfra_pvtltd/'
 export interface Scene { name: string; title: string; at: number; facts: [string, string][] }
 
 export const SCENES: Scene[] = [
-  { name: 'The Villa', title: 'Villa', at: 0, facts: [
-    ['Our Promise', 'From concept to completion, we bring your dream villa to life through complete design, development and execution.'],
-    ['Light', 'Soft wall lanterns that hold the house in the dusk.']] },
-  { name: 'Lawn & Pavilion', title: 'Garden', at: .3, facts: [
-    ['Lawn', 'A broad, level lawn crossed by a stepping-stone path.'],
-    ['Pavilion', 'A tiled garden pavilion around a stone fire bowl.'],
-    ['Planting', 'Palms, banana and layered tropical understorey.']] },
-  { name: 'Pool Deck', title: 'Deck', at: .58, facts: [
-    ['Deck', 'Timber decking that follows the curve of the pool.'],
-    ['Shade', 'A timber pergola and parasols over the loungers.'],
-    ['Paths', 'Stone pavers set in grass link the deck to the lawn.']] },
-  { name: 'Pool & Water Wall', title: 'Pool', at: .8, facts: [
-    ['Pool', 'A free-form pool with underwater lighting.'],
-    ['Water wall', 'A natural-stone wall with a sheet-water cascade.'],
-    ['Reflection', 'The villa mirrored in still water at dusk.']] },
+  {
+    name: 'The Villa', title: 'Villa', at: 0, facts: [
+      ['Our Promise', 'From concept to completion, we bring your dream villa to life through complete design, development and execution.'],
+      ['Light', 'Soft wall lanterns that hold the house in the dusk.']]
+  },
+  {
+    name: 'Lawn & Pavilion', title: 'Garden', at: .3, facts: [
+      ['Lawn', 'A broad, level lawn crossed by a stepping-stone path.'],
+      ['Pavilion', 'A tiled garden pavilion around a stone fire bowl.'],
+      ['Planting', 'Palms, banana and layered tropical understorey.']]
+  },
+  {
+    name: 'Pool Deck', title: 'Deck', at: .58, facts: [
+      ['Deck', 'Timber decking that follows the curve of the pool.'],
+      ['Shade', 'A timber pergola and parasols over the loungers.'],
+      ['Paths', 'Stone pavers set in grass link the deck to the lawn.']]
+  },
+  {
+    name: 'Pool & Water Wall', title: 'Pool', at: .8, facts: [
+      ['Pool', 'A free-form pool with underwater lighting.'],
+      ['Water wall', 'A natural-stone wall with a sheet-water cascade.'],
+      ['Reflection', 'The villa mirrored in still water at dusk.']]
+  },
 ]
 
 export const SERVICES: [string, string, string[], string[]][] = [
@@ -60,7 +68,7 @@ export const TESTIMONIALS: [string, string, string?][] = [
   ['The way they promised and provided the service was excellent. Happy with their work. Keep it up, all the best!', 'Vijendhar Reddy'],
 ]
 
-export const PROJECT_TYPES =['Landscaping', 'Swimming pool', 'Resort', 'Farmhouse', 'Residential', 'Commercial', '3D design']
+export const PROJECT_TYPES = ['Landscaping', 'Swimming pool', 'Resort', 'Farmhouse', 'Residential', 'Commercial', '3D design']
 
 export const STATEMENT = ['We', 'design', 'and', 'build', 'visionary', 'ideas', 'into', 'extraordinary', 'destinations', 'through', 'end-to-end', 'resort', 'and', 'farmhouse', 'development,', 'bespoke', 'landscapes,', 'architectural', 'swimming', 'pools,', 'and', 'precision-crafted', 'outdoor']
 
